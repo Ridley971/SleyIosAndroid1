@@ -1,5 +1,6 @@
 import React from 'react'
 import  {StyleSheet,View,Button,Image,Text,Alert, TouchableOpacity,ImageBackground} from 'react-native'
+import CommonText from "./CommonText"
 
 
 
@@ -19,6 +20,7 @@ class Accueil extends React.Component
           </View>
 
           <View style={styles.title_container}>
+            <CommonText>TESTTT</CommonText>
               <Text style={{
                   fontSize: 55,
                   fontWeight:"bold",
@@ -31,31 +33,31 @@ class Accueil extends React.Component
           <View style={styles.options_container}>
               <TouchableOpacity style={styles.touchOption}>
                 <View style={styles.touch_container}>
-                  <Image style={{height:40, width:40}} source={require('../assets/profil.png')}/>
+                  <Image style={{height:40, width:40}} source={require('../assets/profile.png')}/>
                   <Text style={styles.text_Common}> Profil</Text>
                 </View>
               </TouchableOpacity>
               <TouchableOpacity style={styles.touchOption}>
                 <View style={styles.touch_container}>
-                  <Image style={{height:40, width:40}} source={require('../assets/profil.png')}/>
+                  <Image style={{height:40, width:40}} source={require('../assets/calendar.png')}/>
                   <Text style={styles.text_Common}> Planning</Text>
                 </View>
               </TouchableOpacity>
               <TouchableOpacity style={styles.touchOption}>
                 <View style={styles.touch_container}>
-                  <Image style={{height:40, width:40}} source={require('../assets/profil.png')}/>
+                  <Image style={{height:40, width:40}} source={require('../assets/information.png')}/>
                   <Text style={styles.text_Common}> Infos pratiques</Text>
                 </View>
               </TouchableOpacity>
               <TouchableOpacity style={styles.touchOption}>
                 <View style={styles.touch_container}>
-                  <Image style={{height:40, width:40}} source={require('../assets/profil.png')}/>
+                  <Image style={{height:40, width:40}} source={require('../assets/partners.png')}/>
                   <Text style={styles.text_Common}> Partenaires</Text>
                 </View>
               </TouchableOpacity>
               <TouchableOpacity style={styles.touchOption}>
                 <View style={styles.touch_container}>
-                  <Image style={{height:40, width:40}} source={require('../assets/profil.png')}/>
+                  <Image style={{height:40, width:40}} source={require('../assets/profile.png')}/>
                   <Text style={styles.text_Common}>À propos </Text>
                 </View>
               </TouchableOpacity>

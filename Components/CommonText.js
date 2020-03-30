@@ -1,11 +1,11 @@
-class MyAppHeaderText extends Component {
+import React from 'react'
+import {Text} from 'react-native'
+class CommonText extends React.Component {
   render() {
     return (
-      <MyAppText>
-        <Text style={{fontSize: 20}}>{this.props.children}</Text>
-      </MyAppText>
+        <Text style={{fontSize: 20, color:"blue"}}>{this.props.children}</Text>
     );
   }
 }
 
-export default MyAppHeaderText
+export default CommonText
