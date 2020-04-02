@@ -1,23 +1,35 @@
 import React from "react"
 import {TextInput,Button, StyleSheet,View, TouchableOpacity, Text} from "react-native"
+import SleyBackground from "./CustomComponent/SleyBackground"
 
 class Connexion extends React.Component
 {
   render()
   {
     return(
-      <View style={styles.main_container}>
+      <SleyBackground style={{alignItems:"center"}}>
+              <Text style={{
+                  marginTop:"10%",
+                  fontSize: 55,
+                  fontWeight:"bold",
+                  color:'#C0C0C0C0'}}>SLEY</Text>
+              <Text style={{
+                  fontSize: 35,
+                  fontWeight:"bold",
+                  color:'#FFD700',
+                marginBottom:"25%"}}>Sport Training</Text>
+
             <View style={styles.inputView} >
                 <TextInput
                   style={styles.inputText}
                   placeholder="Email..."
-                  placeholderTextColor="#003f5c"/>
+                  placeholderTextColor="#C0C0C0C0"/>
               </View>
               <View style={styles.inputView} >
                  <TextInput
                    style={styles.inputText}
                    placeholder="Password..."
-                   placeholderTextColor="#003f5c"/>
+                   placeholderTextColor="#C0C0C0C0"/>
                </View>
 
               <TouchableOpacity>
@@ -25,10 +37,10 @@ class Connexion extends React.Component
               </TouchableOpacity>
 
               <TouchableOpacity style={styles.loginBtn}
-                  onPress={() => { this.props.navigation.navigate('Accueil')}}>
+                  onPress={() => { this.props.navigation.replace('Accueil')}}> 
                 <Text style={styles.loginText}>LOGIN</Text>
               </TouchableOpacity>
-      </View>
+      </SleyBackground>
     )
   }
 
@@ -44,7 +56,7 @@ const styles = StyleSheet.create({
 
   inputView:{
   width:"80%",
-  backgroundColor:"#465881",
+  backgroundColor:"rgba(255, 255, 0, 0.5)",
   borderRadius:25,
   height:50,
   marginBottom:20,
@@ -54,12 +66,14 @@ const styles = StyleSheet.create({
 
   inputText:{
   height:50,
-  color:"white"
+  color:"#C0C0C0C0",
+  fontWeight:"bold"
   },
 
   forgot:{
-   color:"white",
-   fontSize:11
+   color:"#C0C0C0C0",
+   fontSize:15,
+   fontWeight:"bold"
  },
 
  loginBtn:{
@@ -72,5 +86,10 @@ const styles = StyleSheet.create({
   marginTop:40,
   marginBottom:10
   },
+  loginText:{
+    color:"#C0C0C0C0",
+    fontSize:25,
+    fontWeight:"bold"
+  }
 })
 export default Connexion

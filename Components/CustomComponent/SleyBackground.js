@@ -7,20 +7,14 @@ class SleyBackground extends React.Component
   render()
   {
     return(
-        <View style={styles.main_container}>
-          <ImageBackground source={require('../assets/home.png')} style={styles.image}>
-
+          <ImageBackground source={require('../../assets/back.jpg')} style={[styles.image,{...this.props.style}]}>
+            {this.props.children}
           </ImageBackground>
-        </View>
     )
   }
 }
 
 const styles = StyleSheet.create({
-  main_container: {
-    flex:1,
-    backgroundColor:"green"
-  },
 
   image: {
     flex:1,
