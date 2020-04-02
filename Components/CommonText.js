@@ -1,5 +1,6 @@
 import React from 'react'
 import {Text} from 'react-native'
+
 class CommonText extends React.Component {
   render() {
     return (
