@@ -74,12 +74,14 @@ const styles = StyleSheet.create({
   //Containers
   main_container: {
     flex: 1,
-    backgroundColor:'black'
+    backgroundColor:'black',
+    alignItems:"center"
   },
   logo_container: {
     flex: 0,
     alignItems:'center',
-    justifyContent:'center',marginTop:30
+    justifyContent:'center',
+    marginTop:"25%"
   },
   title_container: {
     flex: 0,
@@ -92,8 +94,7 @@ const styles = StyleSheet.create({
     borderRadius:35,
     marginBottom:25,
     marginTop:25,
-    marginRight:15,
-    marginLeft:15
+    width:"90%",
   },
   touch_container:{
     flexDirection:"row"
