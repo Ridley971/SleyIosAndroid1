@@ -3,7 +3,7 @@ import {Text} from 'react-native'
 class CommonText extends React.Component {
   render() {
     return (
-        <Text style={{fontSize: 20, color:"blue"}}>{this.props.children}</Text>
+        <Text style={{fontSize: 25,fontWeight:"bold", color:"#C0C0C0C0"}}>{this.props.children}</Text>
     );
   }
 }
