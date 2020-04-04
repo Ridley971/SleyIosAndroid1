@@ -1,21 +1,41 @@
 import React from 'react'
-import {StyleSheet, View, Text,TextInput, Button, TouchableOpacity } from 'react-native'
+import {StyleSheet, View, Text,TextInput, Button, TouchableOpacity,Picker } from 'react-native'
+
+import SleyBackground from "../CustomComponent/SleyBackground"
+import StepsTitle from "../CustomComponent/StepsTitle"
+
+
 
 class Step4 extends React.Component {
+  state = {user: ''}
+  updateUser = (user) => {
+     this.setState({ user: user })
+  }
   render()
   {
     return(
-      <View style={styles.main_container}>
-        <Text style={styles.text_Title}> Quelle taille faites vous ?</Text>
-        <TextInput
-          placeholder="0"
-          placeholderTextColor="#8A8985"
-          keyboardType={'numeric'}
-          keyboardAppearance='dark'
-          maxLength={3}
-           style={{color:'#8A8985', fontSize:90,fontWeight:'bold',textAlign:'center'}}
-          />
-
+      <SleyBackground>
+        <StepsTitle style={{flex:1}}> Quelle taille faites vous ?</StepsTitle>
+        <View style={{flex:4,justifyContent:"center",alignItems:"center"}}>
+            <TextInput
+              placeholder="0"
+              placeholderTextColor="#8A8985"
+              keyboardType={'numeric'}
+              keyboardAppearance='dark'
+              maxLength={3}
+               style={{color:'#8A8985', fontSize:200,
+               fontWeight:'bold'}}
+              />
+            <Picker
+              selectedValue = {this.state.user}
+              onValueChange = {this.updateUser}
+              style={{ height: 50, width: 150, borderRadius:15,
+                  backgroundColor:'rgba(255, 255, 0, 0.7)' }}
+             >
+             <Picker.Item label="Centimetres" value="cm" />
+             <Picker.Item label="Pieds" value="pied" />
+           </Picker>
+        </View>
         <TouchableOpacity
             style={styles.touchButton}
             onPress={() => {this.props.navigation.navigate("Step5")}}>
@@ -23,23 +43,20 @@ class Step4 extends React.Component {
         </TouchableOpacity>
 
 
-    </View>
+    </SleyBackground>
     )
   }
 }
 const styles={
 
-  main_container:{
-    flex:1,
-    backgroundColor:'black'
-  },
-
-  touchButton:{
-    borderColor:'#A9A9A9',
-    backgroundColor:'#DCBD10',
+  touchButton:
+{
+    borderColor:'#C0C0C0C0',
+    backgroundColor:'rgba(255, 255, 0, 0.7)',
     borderWidth:3,
     borderRadius:35,
-    padding:20
+    padding:20,
+    marginBottom:30
 
   },
 
@@ -47,17 +64,8 @@ const styles={
     textAlign:'center',
     fontWeight: 'bold',
     fontSize: 30,
-    color: '#8A8985'
 
   },
-
-  text_Title:{
-      textAlign:'center',
-      fontWeight: 'bold',
-      fontSize: 25,
-      padding:20,
-      color:'#C0C0C0C0'
-  }
 
 }
 

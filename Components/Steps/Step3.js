@@ -1,7 +1,11 @@
 import React from 'react'
 import {StyleSheet, View, Text,Button,Platform,TouchableOpacity } from 'react-native'
 
-//import DateTimePicker from '@react-native-community/datetimepicker'
+import DateTimePicker from '@react-native-community/datetimepicker'
+
+import SleyBackground from "../CustomComponent/SleyBackground"
+import StepsTitle from "../CustomComponent/StepsTitle"
+import CommonText from "../CustomComponent/CommonText"
 
 export default class Step3 extends React.Component {
 
@@ -31,39 +35,38 @@ export default class Step3 extends React.Component {
     this.show('date')
   }
 
-  timepicker=()=>{
-    this.show('time')
-  }
   render()
   {
     const{show,date,today, mode}=this.state
 
         return(
-            <View style={styles.main_container}>
+            <SleyBackground>
 
-                <Text style={styles.text_Title} >Quel est votre Date de naissance ?</Text>
+                <StepsTitle style={{flex:1,justifyContent:"center"}}>Quel est votre Date de naissance ?</StepsTitle>
 
-                                {
-                                /*  show &&
-                                  <View style={{backgroundColor:"#DCBD10", borderRadius:100}}>
-                                  <DateTimePicker
-                                  value={date}
-                                  textColor="red"
-                                  mode={mode}
-                                  display='default'
-                                  maximumDate= {new Date(today.getFullYear()-18,today.getMonth(),today.getDate())}
-                                  minimumDate= {new Date(today.getFullYear()-100,today.getMonth(),today.getDate())}
 
-                                  onChange={this.setDate}>
-                                   </DateTimePicker>
-                                   </View>
-                                   */
-                                }
-                <Button onPress={this.datepicker} title="show date picker !"
-                />
-                <Text style={styles.text_Detail}>
+                <View style={{width:"80%",borderRadius:45,
+                backgroundColor:"rgba(255, 255, 0, 0.9)",alignSelf:"center"}}>
+                  <TouchableOpacity style={styles.touchButton} onPress={this.datepicker}>
+                    <Text>{this.date}</Text>
+                  </TouchableOpacity>
+                  {
+                    show &&
+                    <DateTimePicker
+                    value={date}
+                    mode={mode}
+                    display='default'
+                    maximumDate= {new Date(today.getFullYear()-18,today.getMonth(),today.getDate())}
+                    minimumDate= {new Date(today.getFullYear()-100,today.getMonth(),today.getDate())}
+                    style={{ borderRadius:25}}
+                    onChange={this.setDate}>
+                     </DateTimePicker>
+                  }
+                </View>
+
+                <CommonText style={styles.text_Detail}>
                 Votre âge nous permet de mieux personnaliser
-                vos exercies et votre nutrition </Text>
+                vos exercies et votre nutrition </CommonText>
 
 
 
@@ -71,23 +74,21 @@ export default class Step3 extends React.Component {
                   <Text style={styles.text_Button}>Valider</Text>
                 </TouchableOpacity>
 
-            </View>
+            </SleyBackground>
         )
   }
 }
 
 const styles={
-
-  main_container:{
-    flex:1,
-    backgroundColor:'black'
-  },
-  touchButton:{
-    borderColor:'#A9A9A9',
-    backgroundColor:'#DCBD10',
+  touchButton:
+{
+    justifyContent:"flex-end",
+    borderColor:'#C0C0C0C0',
+    backgroundColor:'rgba(255, 255, 0, 0.7)',
     borderWidth:3,
     borderRadius:35,
-    padding:20
+    padding:20,
+    marginBottom:30
 
   },
 
@@ -95,7 +96,6 @@ const styles={
     textAlign:'center',
     fontWeight: 'bold',
     fontSize: 30,
-    color: '#8A8985'
 
   },
   text_Title:{
@@ -106,9 +106,11 @@ const styles={
       color:'#C0C0C0C0'
   },
   text_Detail:{
+      flex:1,
       textAlign:'center',
       color:'#B4B1B0',
-      fontSize: 20
+      fontSize: 20,
+      marginTop:20
   }
 
 }

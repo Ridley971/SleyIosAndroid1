@@ -9,7 +9,7 @@ class StepsTitle extends React.Component
         return(
           <View style={[styles.title_container,{...this.props.style}]}>
             <CommonText
-                style={{fontSize: 25}}>
+                style={{fontSize: 25, textAlign:"center"}}>
             {this.props.children}
           </CommonText>
           </View>
@@ -19,11 +19,11 @@ class StepsTitle extends React.Component
 }
 
 const styles =StyleSheet.create({
-  title_container:{
+  /*title_container:{
     flex:1,
     justifyContent:'center',
     alignItems:"center",
 
-  },
+  },*/
 })
 export default StepsTitle

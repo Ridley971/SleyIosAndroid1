@@ -17,14 +17,14 @@ class Step2 extends React.Component {
   {
     return(
       <SleyBackground>
-        <StepsTitle style={{flex:1,backgroundColor:"green"}}>Quel est votre Sexe ?</StepsTitle>
+        <StepsTitle style={{flex:1}}>Quel est votre Sexe ?</StepsTitle>
 
         <View style={styles.gender_container}>
           <TouchableOpacity
           style={styles.touchMale}
           onPress={() => {this._NextStep("M")}}>
           <Image
-              style={{width:150, height: 150, opacity:0.8}}
+              style={{width:150, height: 150}}
               source={require('../../assets/gender-Male.png')}
                 />
           </TouchableOpacity>
@@ -32,7 +32,7 @@ class Step2 extends React.Component {
            onPress={() => {this._NextStep("F")}}>
 
           <Image
-              style={{width: 100, height: 100}}
+              style={{width: 150, height: 150}}
               source={require('../../assets/gender-Female.png')}
                 />
           </TouchableOpacity>
@@ -46,16 +46,11 @@ class Step2 extends React.Component {
 const styles={
 
   gender_container:{
-    flex:6,
+    flex:5,
+    justifyContent:"space-between",
     alignItems: 'flex-start',
     flexDirection:"row"
   },
-  touchMale:{
-    backgroundColor:'blue',
-  },
-  touchFemale:{
-    backgroundColor:'pink'
-  }
 }
 
 const mapStateToProps = (state) => {
