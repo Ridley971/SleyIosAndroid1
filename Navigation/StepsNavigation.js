@@ -10,6 +10,7 @@ import Step5 from '../Components/Steps/Step5'
 import Step6 from '../Components/Steps/Step6'
 import Step7 from '../Components/Steps/Step7'
 import Step8 from '../Components/Steps/Step8'
+import Accueil from '../Components/Accueil'
 
 
 const StepsStackNavigator = createStackNavigator({
@@ -83,7 +84,18 @@ const StepsStackNavigator = createStackNavigator({
       headerStyle: {backgroundColor: 'rgba(255, 255, 0, 0.7)'},
       headerTintColor: 'black',
       headerTitleStyle: {fontWeight: 'bold'}
-    }
+    },
+  },
+
+  Accueil: {
+    screen: Accueil,
+    navigationOptions: {
+      title: 'Accueil',
+      headerStyle: {backgroundColor: 'rgba(255, 255, 0, 0.7)'},
+      headerTintColor: 'black',
+      headerTitleStyle: {fontWeight: 'bold'},
+      headerShown: false
+    },
   }
 });
 

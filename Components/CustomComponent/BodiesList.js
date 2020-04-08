@@ -15,7 +15,6 @@ class BodiesList extends React.Component {
   }
 
   render() {
-    console.log(this.props.sexe)
     return (
        <SafeAreaView style={styles.container}>
         <FlatList

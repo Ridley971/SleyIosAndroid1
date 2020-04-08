@@ -25,8 +25,8 @@ class Step8 extends React.Component {
             }
           />
         </SafeAreaView>
-        <TouchableOpacity 
-          onPress={() => {this.props.navigation.navigate("Accueil")}}>
+        <TouchableOpacity
+          onPress={() => {this.props.navigation.replace("Accueil")}}>
             <Text style={{fontSize: 25}}> Accueil</Text>
         </TouchableOpacity>
       </View>

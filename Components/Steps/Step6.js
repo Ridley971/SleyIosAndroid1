@@ -1,7 +1,7 @@
 import React from 'react'
 import {StyleSheet,View, Text, Image, ScrollView,Button, TouchableOpacity} from 'react-native'
 import bodies from "../../Helpers/body-percent"
-import BodiesList from "../BodiesList"
+import BodiesList from "../CustomComponent/BodiesList"
 
 class Step6 extends React.Component {
   render() {

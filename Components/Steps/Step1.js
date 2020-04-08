@@ -13,7 +13,7 @@ class Step1 extends React.Component {
     return(
       <SleyBackground>
 
-            <StepsTitle>Quel est votre objectif ?</StepsTitle>
+            <StepsTitle style={{flex:1}}>Quel est votre objectif ?</StepsTitle>
 
             <View style={styles.obj_container} >
                   <TouchableOpacity

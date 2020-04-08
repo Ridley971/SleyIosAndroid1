@@ -1,67 +1,62 @@
 import React from 'react'
 import {StyleSheet, View, Text,Button,Platform,TouchableOpacity } from 'react-native'
 
-import DateTimePicker from '@react-native-community/datetimepicker'
-
+import CustomDatePicker from '../CustomComponent/CustomDatePicker'
 import SleyBackground from "../CustomComponent/SleyBackground"
 import StepsTitle from "../CustomComponent/StepsTitle"
 import CommonText from "../CustomComponent/CommonText"
+import moment from "moment";
 
-export default class Step3 extends React.Component {
-
-  state={
-    date: new Date(),
-    today: new Date(),
-    mode:'date',
-    show:false
+export default class Step3 extends React.Component
+{
+  constructor(props)
+  {
+    super(props);
+    this.state = {
+      date:moment(new Date()),
+      showDatePicker:false
+     }
   }
 
-  setDate=(event,date)=>{
-    date=date||this.state.state
-    this.setState({
-      show:Platform.OS=='ios'?true:false,
-      date,
-    })
-  }
-
-  show=mode=>{
-    this.setState({
-      show:true,
-      mode,
-    })
-  }
-
-  datepicker=()=>{
-    this.show('date')
-  }
 
   render()
   {
-    const{show,date,today, mode}=this.state
-
+    //const { date, showDatePicker } = this.state
+    console.log(this.state)
         return(
             <SleyBackground>
 
                 <StepsTitle style={{flex:1,justifyContent:"center"}}>Quel est votre Date de naissance ?</StepsTitle>
 
 
-                <View style={{width:"80%",borderRadius:45,
-                backgroundColor:"rgba(255, 255, 0, 0.9)",alignSelf:"center"}}>
-                  <TouchableOpacity style={styles.touchButton} onPress={this.datepicker}>
-                    <Text>{this.date}</Text>
+                <View style={{width:"80%",borderRadius:45,alignSelf:"center"}}>
+                  <TouchableOpacity style={styles.touchButton}
+                    onPress={()=> {this.setState({showDatePicker:true})}} >
+                    <Text style={{fontSize:20,textAlign:"center",fontWeight:"bold"}}>
+                      {moment(this.state.date).format("DD-MM-YYYY")}
+                    </Text>
                   </TouchableOpacity>
-                  {
-                    show &&
-                    <DateTimePicker
-                    value={date}
-                    mode={mode}
-                    display='default'
-                    maximumDate= {new Date(today.getFullYear()-18,today.getMonth(),today.getDate())}
-                    minimumDate= {new Date(today.getFullYear()-100,today.getMonth(),today.getDate())}
-                    style={{ borderRadius:25}}
-                    onChange={this.setDate}>
-                     </DateTimePicker>
+                  {this.state.showDatePicker && (
+                        <CustomDatePicker
+                          date={this.state.date}
+                          onClose={date => {
+                            console.log("Platform: "+Platform.OS)
+                            if (date && Platform.OS !== 'ios')
+                            {
+                              console.log("IF")
+                              this.setState({ showDatePicker: false, date: moment(date) });
+                            } else {
+                              console.log("ELSE")
+                              this.setState({ showDatePicker: false });
+                            }
+                          }}
+                          onChange={d => {
+                            this.setState({ date: moment(d) });
+                          }}
+                        />
+                      )
                   }
+
                 </View>
 
                 <CommonText style={styles.text_Detail}>
