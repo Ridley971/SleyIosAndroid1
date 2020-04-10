@@ -1,6 +1,6 @@
 import React from 'react'
 import {StyleSheet, View, Text,TextInput, Button,Picker, TouchableOpacity } from 'react-native'
-
+import RNPickerSelect from 'react-native-picker-select'
 import SleyBackground from "../CustomComponent/SleyBackground"
 import StepsTitle from "../CustomComponent/StepsTitle"
 
@@ -20,13 +20,20 @@ class Step5 extends React.Component {
                style={{color:'#8A8985', fontSize:200,
                fontWeight:'bold'}}
               />
-            <Picker
-              style={{ height: 50, width: 150, borderRadius:15,
-                  backgroundColor:'rgba(255, 255, 0, 0.7)' }}
-             >
-             <Picker.Item label="Kilogrammes" value="kg" />
-             <Picker.Item label="Pounds" value="pd" />
-           </Picker>
+
+              <View style={{ height: 50, width: "60%", borderRadius:15,
+                justifyContent:"center",  backgroundColor:'rgba(255, 255, 0, 0.7)' }}>
+                  <RNPickerSelect
+                    placeholder={{label: 'Choisissez votre mesure...',value: null,
+                                  color: 'black'}}
+                  onValueChange={(value) => console.log(value)}
+
+                  items={[
+                      { label: 'Kilogrammes', value: 'kg'},
+                      { label: 'Pounds', value: 'pds' }
+                  ]}
+                  />
+              </View>
         </View>
         <TouchableOpacity
             style={styles.touchButton}

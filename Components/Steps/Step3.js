@@ -21,7 +21,9 @@ export default class Step3 extends React.Component
 
   render()
   {
-    //const { date, showDatePicker } = this.state
+    const { date} = this.state
+    const today = new Date()
+
     console.log(this.state)
         return(
             <SleyBackground>
@@ -33,12 +35,14 @@ export default class Step3 extends React.Component
                   <TouchableOpacity style={styles.touchButton}
                     onPress={()=> {this.setState({showDatePicker:true})}} >
                     <Text style={{fontSize:20,textAlign:"center",fontWeight:"bold"}}>
-                      {moment(this.state.date).format("DD-MM-YYYY")}
+                      {moment(date).format("L")}
                     </Text>
                   </TouchableOpacity>
                   {this.state.showDatePicker && (
                         <CustomDatePicker
-                          date={this.state.date}
+                          date={date}
+                          maximumDate= {new Date(today.getFullYear()-18,11,31)}
+                          minimumDate= {new Date(today.getFullYear()-100,11,31)}
                           onClose={date => {
                             console.log("Platform: "+Platform.OS)
                             if (date && Platform.OS !== 'ios')

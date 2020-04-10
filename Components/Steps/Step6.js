@@ -1,16 +1,19 @@
 import React from 'react'
 import {StyleSheet,View, Text, Image, ScrollView,Button, TouchableOpacity} from 'react-native'
 import bodies from "../../Helpers/body-percent"
+import SleyBackground from "../CustomComponent/SleyBackground"
 import BodiesList from "../CustomComponent/BodiesList"
+import StepsTitle from "../CustomComponent/StepsTitle"
 
 class Step6 extends React.Component {
   render() {
+    console.log(this.constructor.name);
     return (
-      <View style={styles.main_container}>
-        <Text style={styles.text_Title}> Quelle est votre taux de graisse corporelle ?</Text>
+      <SleyBackground>
+        <StepsTitle style={styles.text_Title}> Quelle est votre taux de graisse corporelle ?</StepsTitle>
 
 
-        <BodiesList bodies ={bodies}/>
+        <BodiesList bodies ={bodies} tauxGraisse="actuel"/>
 
         <TouchableOpacity
             style={styles.touchButton}
@@ -18,7 +21,7 @@ class Step6 extends React.Component {
             <Text style={styles.text_Button}>Valider</Text>
         </TouchableOpacity>
 
-    </View>
+    </SleyBackground>
     )
   }
 }
@@ -39,11 +42,13 @@ const styles={
 
 
   touchButton:{
-        borderColor:'#A9A9A9',
-        backgroundColor:'#DCBD10',
-        borderWidth:3,
-        borderRadius:35,
-        padding:20
+      justifyContent:"flex-end",
+      borderColor:'#C0C0C0C0',
+      backgroundColor:'rgba(255, 255, 0, 0.7)',
+      borderWidth:3,
+      borderRadius:35,
+      padding:20,
+      marginBottom:30
 
       },
 
@@ -51,7 +56,6 @@ const styles={
         textAlign:'center',
         fontWeight: 'bold',
         fontSize: 30,
-        color: '#8A8985'
 
       },
 }

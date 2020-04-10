@@ -2,12 +2,13 @@ import React from 'react'
 import {StyleSheet,View, Text, Image, TouchableOpacity,Button, FlatList} from 'react-native'
 import bodies from '../../Helpers/body-percent'
 import BodiesList from "../CustomComponent/BodiesList"
+import SleyBackground from "../CustomComponent/SleyBackground"
 
 class Step7 extends React.Component {
 
   render() {
     return(
-      <View style={styles.main_container}>
+      <SleyBackground style={styles.main_container}>
         <Text style={styles.text_Title}> Quelle est votre cible taux de graisse corporelle ?</Text>
 
         <BodiesList bodies ={bodies}/>
@@ -18,7 +19,7 @@ class Step7 extends React.Component {
             <Text style={styles.text_Button}>Valider</Text>
         </TouchableOpacity>
 
-    </View>
+    </SleyBackground>
     )
   }
 }
@@ -48,21 +49,22 @@ const styles={
     },
 
 
-  touchButton:{
-        borderColor:'#A9A9A9',
-        backgroundColor:'#DCBD10',
-        borderWidth:3,
-        borderRadius:35,
-        padding:20
+      touchButton:{
+          justifyContent:"flex-end",
+          borderColor:'#C0C0C0C0',
+          backgroundColor:'rgba(255, 255, 0, 0.7)',
+          borderWidth:3,
+          borderRadius:35,
+          padding:20,
+          marginBottom:30
 
-      },
+          },
 
-      text_Button:{
-        textAlign:'center',
-        fontWeight: 'bold',
-        fontSize: 30,
-        color: '#8A8985'
+          text_Button:{
+            textAlign:'center',
+            fontWeight: 'bold',
+            fontSize: 30,
 
-      },
+          },
 }
 export default Step7

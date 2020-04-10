@@ -1,6 +1,6 @@
 import React from 'react'
-import {StyleSheet, View, Text,TextInput, Button, TouchableOpacity,Picker } from 'react-native'
-
+import {StyleSheet, View, Text,TextInput, Button, TouchableOpacity } from 'react-native'
+import RNPickerSelect from 'react-native-picker-select'
 import SleyBackground from "../CustomComponent/SleyBackground"
 import StepsTitle from "../CustomComponent/StepsTitle"
 
@@ -8,9 +8,6 @@ import StepsTitle from "../CustomComponent/StepsTitle"
 
 class Step4 extends React.Component {
   state = {user: ''}
-  updateUser = (user) => {
-     this.setState({ user: user })
-  }
   render()
   {
     return(
@@ -26,15 +23,20 @@ class Step4 extends React.Component {
                style={{color:'#8A8985', fontSize:200,
                fontWeight:'bold'}}
               />
-            <Picker
-              selectedValue = {this.state.user}
-              onValueChange = {this.updateUser}
-              style={{ height: 50, width: 150, borderRadius:15,
-                  backgroundColor:'rgba(255, 255, 0, 0.7)' }}
-             >
-             <Picker.Item label="Centimetres" value="cm" />
-             <Picker.Item label="Pieds" value="pied" />
-           </Picker>
+              <View style={{ height: 50, width: "60%", borderRadius:15,
+                justifyContent:"center", backgroundColor:'rgba(255, 255, 0, 0.7)' }}>
+                  <RNPickerSelect
+          
+                    placeholder={{label: 'Choisissez votre mesure...',value: null,
+                                  color: 'black'}}
+                  onValueChange={(value) => console.log(value)}
+
+                  items={[
+                      { label: 'Centimètres', value: 'cm'},
+                      { label: 'Pieds', value: 'pds' }
+                  ]}
+                  />
+              </View>
         </View>
         <TouchableOpacity
             style={styles.touchButton}

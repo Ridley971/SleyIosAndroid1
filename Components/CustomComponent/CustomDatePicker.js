@@ -16,7 +16,6 @@ const Header = styled.View`
   justify-content: flex-end;
   align-items: flex-end;
   background-color: white;
-  border-bottom-width: 1;
   border-color: grey;
 `;
 export default class CustomDatePicker extends React.Component {
@@ -29,7 +28,7 @@ export default class CustomDatePicker extends React.Component {
   }
 
   render() {
-    const {  onClose, onChange } = this.props;
+    const {  onClose, onChange, maximumDate, minimumDate,style } = this.props;
     const { date } = this.state;
     return (
       <Container onPress={onClose}>
@@ -44,6 +43,9 @@ export default class CustomDatePicker extends React.Component {
           value={date}
           mode="date"
           display="default"
+          maximumDate= {maximumDate}
+          minimumDate= {minimumDate}
+          style={style}
           onChange={(e, d) => {
             if (Platform.OS === 'ios') {
               this.setState({ date: d });
