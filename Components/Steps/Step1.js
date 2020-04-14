@@ -18,7 +18,7 @@ class Step1 extends React.Component {
             <View style={styles.obj_container} >
                   <TouchableOpacity
                     style={styles.touchOp}
-                    onPress={() => {this.props.navigation.navigate("Step2")}}>
+                    onPress={() => {this._NextStep()}}>
                     <Text style={styles.text_Obj}>Bruler de la graisse</Text>
                     <Text style={styles.text_Desc}>Me tonifier et Mincir</Text>
                   </TouchableOpacity>

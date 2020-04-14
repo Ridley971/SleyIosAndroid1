@@ -1,4 +1,6 @@
 import {createStore} from 'redux'
-import  toggleSexe from './Reducers/sexeReducer'
+import profileReducer from '../Reducers/profileReducer'
 
-export default createStore(toggleSexe)
+const store = createStore(profileReducer);
+
+export default store

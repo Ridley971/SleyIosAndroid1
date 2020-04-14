@@ -22,7 +22,7 @@ export default data =[
       libelle:"1 an sans engagment",
       prix:"100€/mois",
       detail:"Accès illimité à la salle et à l'application pendant 1 an",
-      promo:"",
+      promo:"-70%",
       categorie:"Abo"
     },
     {

@@ -1,6 +1,6 @@
 import React from "react"
 import {TextInput,Button, StyleSheet,View, TouchableOpacity, Text} from "react-native"
-import SleyBackground from "./CustomComponent/SleyBackground"
+import SleyBackground from "../CustomComponent/SleyBackground"
 
 class Connexion extends React.Component
 {
@@ -36,8 +36,13 @@ class Connexion extends React.Component
                 <Text style={styles.forgot}>Forgot Password?</Text>
               </TouchableOpacity>
 
+              <TouchableOpacity
+                onPress={()=> this.props.navigation.navigate("Step1")}>
+                <Text style={styles.signIn}>S'inscrire</Text>
+              </TouchableOpacity>
+
               <TouchableOpacity style={styles.loginBtn}
-                  onPress={() => { this.props.navigation.replace('Accueil')}}> 
+                  onPress={()=> this.props.navigation.navigate('Accueil')}>
                 <Text style={styles.loginText}>LOGIN</Text>
               </TouchableOpacity>
       </SleyBackground>
@@ -71,11 +76,18 @@ const styles = StyleSheet.create({
   },
 
   forgot:{
-   color:"#C0C0C0C0",
-   fontSize:15,
-   fontWeight:"bold"
+   color:"#fb5b5a",
+   fontSize:20,
+   fontWeight:"bold",
+   padding:10
  },
 
+ signIn:{
+  color:"#FFD700",
+  fontSize:20,
+  fontWeight:"bold",
+  padding:10
+},
  loginBtn:{
   width:"80%",
   backgroundColor:"#fb5b5a",

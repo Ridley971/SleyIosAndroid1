@@ -7,9 +7,6 @@ import StepsTitle from "../CustomComponent/StepsTitle"
 class Step2 extends React.Component {
 
   _NextStep(sexe) {
-
-    const action = { type: "TOGGLE_SEXE", value: sexe }
-    this.props.dispatch(action)
     this.props.navigation.navigate("Step3")
    }
 
@@ -53,7 +50,5 @@ const styles={
   },
 }
 
-const mapStateToProps = (state) => {
-  return state
-}
-export default connect(mapStateToProps)(Step2)
+
+export default Step2

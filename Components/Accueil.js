@@ -33,7 +33,8 @@ class Accueil extends React.Component
               <CommonText > Nou kontan vwèw <Text style={{color:"#FFD700"}}>{this.userName} </Text>!</CommonText>
           </View>
           <ScrollView style={styles.options_container}>
-              <TouchableOpacity style={styles.touchOption}>
+              <TouchableOpacity style={styles.touchOption}
+                onPress={()=> this.props.navigation.navigate("Profil")}>
                 <View style={styles.touch_container}>
                   <Image style={{height:40, width:40}} source={require('../assets/Gprofile.png')}/>
                   <Text style={styles.text_Common}> Profil</Text>
@@ -111,9 +112,6 @@ const styles = StyleSheet.create({
   //TouchableOpacity
   touchOption:{
       marginBottom:10,
-      /*borderColor:'#A9A9A9',
-      borderWidth:3,
-      borderRadius:35,*/
       padding:10,
       left:50,
       alignSelf:'baseline' // Le parent s'ajuste à l'enfant

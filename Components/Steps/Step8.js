@@ -1,63 +1,50 @@
 import React from 'react'
 import {StyleSheet,View, Text, SafeAreaView, FlatList,TouchableOpacity} from 'react-native'
-import FormuleItem from '../FormuleItem'
+import FormuleItem from '../CustomComponent/FormuleItem'
+import SleyBackground from '../CustomComponent/SleyBackground'
+import StepsTitle from '../CustomComponent/StepsTitle'
 import formules from '../../Helpers/Formules'
 
 
 class Step8 extends React.Component {
+
+  _selectFormule= (idForm) =>
+  {
+    console.log("Form ID: "+idForm);
+    this.props.navigation.navigate("Accueil")
+  }
+
   render()
   {
+
+
     return(
-      <View style={styles.main_container}>
-        <Text style={styles.text_Title}> Les Formules</Text>
+      <SleyBackground>
+          <StepsTitle style={{flex:1, justifyContent:"center"}}> Les Formules</StepsTitle>
 
-        <SafeAreaView style={styles.container}>
-          <FlatList
-            data={formules}
+            <SafeAreaView style={styles.container}>
+              <FlatList
+                data={formules}
 
-            renderItem=
-            {
-              ({item}) =>
+                renderItem=
                 {
-                    return (<FormuleItem formule={item}/>)
-                }
+                  ({item}) =>
+                    {
+                        return (<FormuleItem formule={item}
+                          selectFormule={this._selectFormule}/>)
+                    }
 
-            }
-          />
-        </SafeAreaView>
-        <TouchableOpacity
-          onPress={() => {this.props.navigation.replace("Accueil")}}>
-            <Text style={{fontSize: 25}}> Accueil</Text>
-        </TouchableOpacity>
-      </View>
+                }
+              />
+            </SafeAreaView>
+      </SleyBackground>
     )
   }
 }
 
 const styles = StyleSheet.create({
-  main_container:{
-    flex:1
-  },
-  text_Title:{
-    fontSize:32,
-    textAlign:"center"
-  },
   container: {
-    flex: 1,
-    backgroundColor:'black'
-  },
-  item: {
-    backgroundColor: '#f9c2ff',
-
-    marginVertical: 8,
-    marginHorizontal: 16,
-  },
-  title: {
-    flex:1,
-    fontSize: 32,
-  },
-  promo:{
-    backgroundColor:'yellow',
+    flex: 5,
   }
 });
 
