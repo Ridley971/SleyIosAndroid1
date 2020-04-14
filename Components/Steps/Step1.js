@@ -3,10 +3,15 @@ import {StyleSheet, View, Text,Button,TouchableOpacity,SafeAreaView } from 'reac
 import SleyBackground from "../CustomComponent/SleyBackground"
 import CommonText from "../CustomComponent/CommonText"
 import StepsTitle from "../CustomComponent/StepsTitle"
+import { connect } from 'react-redux'
+
 class Step1 extends React.Component {
 
-  _NextStep() {
-    this.props.navigation.navigate("Step2")
+  _NextStep(idOBJ)
+   {
+     const action = { type: "UPDATE_OBJ", value: idOBJ }
+     this.props.dispatch(action)
+     this.props.navigation.navigate("Step2")
    }
 
   render() {
@@ -18,21 +23,21 @@ class Step1 extends React.Component {
             <View style={styles.obj_container} >
                   <TouchableOpacity
                     style={styles.touchOp}
-                    onPress={() => {this._NextStep()}}>
+                    onPress={() => {this._NextStep(1)}}>
                     <Text style={styles.text_Obj}>Bruler de la graisse</Text>
                     <Text style={styles.text_Desc}>Me tonifier et Mincir</Text>
                   </TouchableOpacity>
 
                   <TouchableOpacity
                     style={styles.touchOp}
-                    onPress={() => {this._NextStep()}}>
+                    onPress={() => {this._NextStep(2)}}>
                     <Text style={styles.text_Obj}>Être en bonne santé</Text>
                     <Text style={styles.text_Desc}>Vivre sainement</Text>
                   </TouchableOpacity>
 
                   <TouchableOpacity
                     style={styles.touchOp}
-                    onPress={() => {this._NextStep()}}>
+                    onPress={() => {this._NextStep(3)}}>
                     <Text style={styles.text_Obj}>Prendre du muscle</Text>
                     <Text style={styles.text_Desc}>Gagner de la masse musculaire & force</Text>
                   </TouchableOpacity>
@@ -87,5 +92,10 @@ touchOp:{
   }
 })
 
+const mapStateToProps = (state) => {
+  return {
+   idObj: state.idObj
+ }
+}
 
-export default Step1
+export default connect(mapStateToProps)(Step1)

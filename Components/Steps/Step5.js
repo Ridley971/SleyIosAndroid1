@@ -3,8 +3,29 @@ import {StyleSheet, View, Text,TextInput, Button,Picker, TouchableOpacity } from
 import RNPickerSelect from 'react-native-picker-select'
 import SleyBackground from "../CustomComponent/SleyBackground"
 import StepsTitle from "../CustomComponent/StepsTitle"
+import {connect} from "react-redux"
 
 class Step5 extends React.Component {
+
+  constructor(props)
+   {
+    super(props)
+    this.poidsText = ""
+  }
+
+  _textInputChanged(text)
+ {
+    this.poidsText = text
+  }
+
+  _NextStep(poids)
+  {
+    const action = { type: "UPDATE_POIDS", value: poids }
+    this.props.dispatch(action)
+    this.props.navigation.navigate("Step6")
+   }
+
+
   render()
   {
     return(
@@ -16,6 +37,7 @@ class Step5 extends React.Component {
               placeholderTextColor="#8A8985"
               keyboardType={'numeric'}
               keyboardAppearance='dark'
+              onChangeText={(text)=>{this._textInputChanged(text)}}
               maxLength={3}
                style={{color:'#8A8985', fontSize:200,
                fontWeight:'bold'}}
@@ -37,7 +59,7 @@ class Step5 extends React.Component {
         </View>
         <TouchableOpacity
             style={styles.touchButton}
-            onPress={() => {this.props.navigation.navigate("Step6")}}>
+            onPress={() => {this._NextStep(this.poidsText)}}>
             <Text style={styles.text_Button}>Valider</Text>
         </TouchableOpacity>
 
@@ -68,4 +90,12 @@ const styles={
   },
 
 }
-export default Step5
+
+
+const mapStateToProps = (state) => {
+  return {
+   poids: state.poids
+ }
+}
+
+export default connect(mapStateToProps)(Step5)

@@ -14,7 +14,7 @@ class Step2 extends React.Component {
 
   render()
   {
-     console.log(this.props)
+  
     return(
       <SleyBackground>
         <StepsTitle style={{flex:1}}>Quel est votre Sexe ?</StepsTitle>

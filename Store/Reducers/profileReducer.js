@@ -1,12 +1,14 @@
 const initialState = {
-      idObj: 0,
-      sexe:"",
-      dateN:"",
-      txAct:"",
-      txCible:"",
-      selectForm:0,
-      taille:0,
-      poids:0}
+        pseudo:"",
+        idObj: 0,
+        sexe:"",
+        dateN:"",
+        idTxAct:0,
+        idTxCible:0,
+        idForm:0,
+        taille:0,
+        poids:0,
+    }
 
 
 function updateProfile(state = initialState, action) {
@@ -47,7 +49,7 @@ function updateProfile(state = initialState, action) {
           nextState =
           {
             ...state,
-            txAct: action.value
+            idTxAct: action.value
           }
       return nextState || state
     }
@@ -57,7 +59,7 @@ function updateProfile(state = initialState, action) {
           nextState =
           {
             ...state,
-            txCible: action.value
+            idTxCible: action.value
           }
       return nextState || state
     }
@@ -67,7 +69,7 @@ function updateProfile(state = initialState, action) {
           nextState =
           {
             ...state,
-            selectForm: action.value
+            idForm: action.value
           }
       return nextState || state
     }

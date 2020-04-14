@@ -4,20 +4,26 @@ import bodies from "../../Helpers/body-percent"
 import SleyBackground from "../CustomComponent/SleyBackground"
 import BodiesList from "../CustomComponent/BodiesList"
 import StepsTitle from "../CustomComponent/StepsTitle"
+import {connect} from "react-redux"
 
 class Step6 extends React.Component {
+
+  _NextStep()
+  {
+    this.props.navigation.navigate("Step7")
+   }
+
   render() {
-    console.log(this.constructor.name);
     return (
       <SleyBackground>
         <StepsTitle style={styles.text_Title}> Quelle est votre taux de graisse corporelle ?</StepsTitle>
 
 
-        <BodiesList bodies ={bodies} tauxGraisse="actuel"/>
+        <BodiesList bodies ={bodies} actionTaux="UPDATE_TXACT"/>
 
         <TouchableOpacity
             style={styles.touchButton}
-            onPress={() => {this.props.navigation.navigate("Step7")}}>
+            onPress={() => {this._NextStep()}}>
             <Text style={styles.text_Button}>Valider</Text>
         </TouchableOpacity>
 
@@ -59,4 +65,12 @@ const styles={
 
       },
 }
-export default Step6
+
+
+const mapStateToProps = (state) => {
+  return {
+   idTxAct: state.idTxAct
+ }
+}
+
+export default connect(mapStateToProps)(Step6)

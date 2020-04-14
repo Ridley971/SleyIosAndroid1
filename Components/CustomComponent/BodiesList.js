@@ -11,23 +11,29 @@ class BodiesList extends React.Component {
     super(props)
     this.state = {
       bodies: [],
-      selectedbody:null
+      selectedbody:0
     }
   }
 
-  _selectTxGraisse = (bodyId) => {
-    if (this.state.selectedbody===null ||
+  _selectTxGraisse = (bodyId) =>
+  {
+    const action = { type: this.props.actionTaux, value: bodyId }
+
+    if (this.state.selectedbody===0 ||
       this.state.selectedbody != bodyId)
-      {
+    {
         this.setState({ selectedbody:bodyId });
+        this.props.dispatch(action)
     }
     else {
-      this.setState({ selectedbody:null });
+      this.setState({ selectedbody:0 });
+      this.props.dispatch(action)
     }
+
+
   }
 
   render() {
-    console.log(this.props);
     return (
        <SafeAreaView  style={{flex:1, alignItems:"center"}}>
         <FlatList
@@ -57,7 +63,10 @@ class BodiesList extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-   sexe: state.sexe
+    sexe:state.sexe,
+    idTxAct: state.idTxAct,
+    idTxCible:state.idTxCible
  }
 }
+
 export default connect(mapStateToProps)(BodiesList)

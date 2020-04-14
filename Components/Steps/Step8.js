@@ -4,19 +4,19 @@ import FormuleItem from '../CustomComponent/FormuleItem'
 import SleyBackground from '../CustomComponent/SleyBackground'
 import StepsTitle from '../CustomComponent/StepsTitle'
 import formules from '../../Helpers/Formules'
-
+import {connect} from "react-redux"
 
 class Step8 extends React.Component {
 
   _selectFormule= (idForm) =>
   {
-    console.log("Form ID: "+idForm);
+    const action = { type: "UPDATE_FORM", value: idForm }
+    this.props.dispatch(action)
     this.props.navigation.navigate("Accueil")
   }
 
   render()
   {
-
 
     return(
       <SleyBackground>
@@ -48,4 +48,9 @@ const styles = StyleSheet.create({
   }
 });
 
-export default Step8
+const mapStateToProps=(state)=>
+{
+  return {idForm: state.idForm}
+
+}
+export default connect(mapStateToProps)(Step8)

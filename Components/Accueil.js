@@ -1,7 +1,7 @@
 import React from 'react'
 import  {StyleSheet,View,Button,Image,Text,Alert, TouchableOpacity,ScrollView} from 'react-native'
 import CommonText from "./CustomComponent/CommonText"
-
+import {connect} from "react-redux"
 
 
 class Accueil extends React.Component
@@ -13,6 +13,7 @@ class Accueil extends React.Component
 
   render()
   {
+    console.log(this.props);
     return(
      <View style={styles.main_container}>
           <View style={styles.logo_container}>
@@ -117,4 +118,10 @@ const styles = StyleSheet.create({
       alignSelf:'baseline' // Le parent s'ajuste à l'enfant
   }
 })
-export default Accueil
+
+const mapStateToProps=(state)=>
+{
+  return state
+
+}
+export default connect(mapStateToProps)(Accueil)

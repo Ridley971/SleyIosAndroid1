@@ -3,15 +3,17 @@ import {StyleSheet,View, Text, Image, TouchableOpacity,Button, FlatList} from 'r
 import bodies from '../../Helpers/body-percent'
 import BodiesList from "../CustomComponent/BodiesList"
 import SleyBackground from "../CustomComponent/SleyBackground"
+import {connect} from "react-redux"
 
 class Step7 extends React.Component {
 
   render() {
+
     return(
       <SleyBackground style={styles.main_container}>
         <Text style={styles.text_Title}> Quelle est votre cible taux de graisse corporelle ?</Text>
 
-        <BodiesList bodies ={bodies}/>
+        <BodiesList bodies ={bodies} actionTaux="UPDATE_TXCIBLE"/>
 
         <TouchableOpacity
             style={styles.touchButton}
@@ -67,4 +69,9 @@ const styles={
 
           },
 }
-export default Step7
+const mapStateToProps=(state)=>
+{
+  return {idTxCible:state.idTxCible}
+
+}
+export default connect(mapStateToProps)(Step7)

@@ -3,11 +3,29 @@ import {StyleSheet, View, Text,TextInput, Button, TouchableOpacity } from 'react
 import RNPickerSelect from 'react-native-picker-select'
 import SleyBackground from "../CustomComponent/SleyBackground"
 import StepsTitle from "../CustomComponent/StepsTitle"
-
+import {connect} from "react-redux"
 
 
 class Step4 extends React.Component {
-  state = {user: ''}
+  constructor(props)
+   {
+    super(props)
+    this.tailleText = ""
+  }
+
+  _textInputChanged(text) {
+    console.log(text);
+    this.tailleText = text
+  }
+
+  _NextStep(taille)
+  {
+    const action = { type: "UPDATE_TAILLE", value: taille }
+    this.props.dispatch(action)
+    this.props.navigation.navigate("Step5")
+   }
+
+
   render()
   {
     return(
@@ -15,18 +33,19 @@ class Step4 extends React.Component {
         <StepsTitle style={{flex:1}}> Quelle taille faites vous ?</StepsTitle>
         <View style={{flex:4,justifyContent:"center",alignItems:"center"}}>
             <TextInput
+              onChangeText={(text) => this._textInputChanged(text)}
               placeholder="0"
               placeholderTextColor="#8A8985"
               keyboardType={'numeric'}
               keyboardAppearance='dark'
               maxLength={3}
-               style={{color:'#8A8985', fontSize:200,
+              style={{color:'#8A8985', fontSize:200,
                fontWeight:'bold'}}
               />
               <View style={{ height: 50, width: "60%", borderRadius:15,
                 justifyContent:"center", backgroundColor:'rgba(255, 255, 0, 0.7)' }}>
                   <RNPickerSelect
-          
+
                     placeholder={{label: 'Choisissez votre mesure...',value: null,
                                   color: 'black'}}
                   onValueChange={(value) => console.log(value)}
@@ -40,7 +59,7 @@ class Step4 extends React.Component {
         </View>
         <TouchableOpacity
             style={styles.touchButton}
-            onPress={() => {this.props.navigation.navigate("Step5")}}>
+            onPress={() => {this._NextStep(this.tailleText)}}>
             <Text style={styles.text_Button}>Valider</Text>
         </TouchableOpacity>
 
@@ -71,4 +90,11 @@ const styles={
 
 }
 
-export default Step4
+
+const mapStateToProps = (state) => {
+  return {
+   taille: state.taille
+ }
+}
+
+export default connect(mapStateToProps)(Step4)

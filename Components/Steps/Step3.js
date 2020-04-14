@@ -5,13 +5,15 @@ import CustomDatePicker from '../CustomComponent/CustomDatePicker'
 import SleyBackground from "../CustomComponent/SleyBackground"
 import StepsTitle from "../CustomComponent/StepsTitle"
 import CommonText from "../CustomComponent/CommonText"
-import moment from "moment";
+import moment from "moment/min/moment-with-locales";
+import {connect} from "react-redux"
 
-export default class Step3 extends React.Component
+class Step3 extends React.Component
 {
   constructor(props)
   {
     super(props);
+    moment.locale('fr')
     this.state = {
       date:moment(new Date()),
       showDatePicker:false
@@ -19,10 +21,17 @@ export default class Step3 extends React.Component
   }
 
 
+  _NextStep(dateN) {
+    const action = { type: "UPDATE_DATEN", value: dateN }
+    this.props.dispatch(action)
+    this.props.navigation.navigate("Step4")
+   }
+
   render()
   {
     const { date} = this.state
     const today = new Date()
+    const year = moment(today).format("YYYY");
 
     console.log(this.state)
         return(
@@ -41,16 +50,14 @@ export default class Step3 extends React.Component
                   {this.state.showDatePicker && (
                         <CustomDatePicker
                           date={date}
-                          maximumDate= {new Date(today.getFullYear()-18,11,31)}
-                          minimumDate= {new Date(today.getFullYear()-100,11,31)}
+                          maximumDate= {new Date(year-18,11,31)}
+                          minimumDate= {new Date(year-100,11,31)}
                           onClose={date => {
-                            console.log("Platform: "+Platform.OS)
                             if (date && Platform.OS !== 'ios')
                             {
-                              console.log("IF")
                               this.setState({ showDatePicker: false, date: moment(date) });
-                            } else {
-                              console.log("ELSE")
+                            }
+                            else {
                               this.setState({ showDatePicker: false });
                             }
                           }}
@@ -69,7 +76,7 @@ export default class Step3 extends React.Component
 
 
 
-                <TouchableOpacity style={styles.touchButton} onPress={() => {this.props.navigation.navigate("Step4")}}>
+                <TouchableOpacity style={styles.touchButton} onPress={() => {this._NextStep(moment(date).format("L"))}}>
                   <Text style={styles.text_Button}>Valider</Text>
                 </TouchableOpacity>
 
@@ -113,3 +120,12 @@ const styles={
   }
 
 }
+
+
+const mapStateToProps = (state) => {
+  return {
+   dateN: state.dateN
+ }
+}
+
+export default connect(mapStateToProps)(Step3)
