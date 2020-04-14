@@ -27,6 +27,7 @@ class BodiesList extends React.Component {
   }
 
   render() {
+    console.log(this.props);
     return (
        <SafeAreaView  style={{flex:1, alignItems:"center"}}>
         <FlatList
@@ -55,6 +56,8 @@ class BodiesList extends React.Component {
 
 
 const mapStateToProps = (state) => {
-  return state
+  return {
+   sexe: state.sexe
+ }
 }
 export default connect(mapStateToProps)(BodiesList)
