@@ -13,12 +13,12 @@ import Step5 from '../Components/Steps/Step5'
 import Step6 from '../Components/Steps/Step6'
 import Step7 from '../Components/Steps/Step7'
 import Step8 from '../Components/Steps/Step8'
+import SleyTabNav from './SleyTabNav'
 
 const Stack = createStackNavigator()
 
-function MainStackNavigator() {
+function ConnexionStackNav() {
   return (
-    <NavigationContainer>
       <Stack.Navigator
         initialRouteName='Connexion'
         screenOptions={{
@@ -74,9 +74,12 @@ function MainStackNavigator() {
           name='Step8'
           component={Step8}/>
 
+        <Stack.Screen
+            name='SleyTabNav'
+            component={SleyTabNav}
+            options={{ headerShown: false }}/>
       </Stack.Navigator>
-    </NavigationContainer>
   )
 }
 
-export default MainStackNavigator
+export default ConnexionStackNav

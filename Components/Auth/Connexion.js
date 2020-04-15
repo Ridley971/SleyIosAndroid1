@@ -42,7 +42,10 @@ class Connexion extends React.Component
               </TouchableOpacity>
 
               <TouchableOpacity style={styles.loginBtn}
-                  onPress={()=> this.props.navigation.navigate('Accueil')}>
+                  onPress={()=> this.props.navigation.reset({
+                            index: 1,
+                            routes: [{ name: 'SleyTabNav' }],
+                          })}>
                 <Text style={styles.loginText}>LOGIN</Text>
               </TouchableOpacity>
       </SleyBackground>

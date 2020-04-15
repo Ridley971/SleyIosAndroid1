@@ -12,7 +12,10 @@ class Step8 extends React.Component {
   {
     const action = { type: "UPDATE_FORM", value: idForm }
     this.props.dispatch(action)
-    this.props.navigation.navigate("Accueil")
+    this.props.navigation.reset({
+              index: 1,
+              routes: [{ name: 'SleyTabNav' }],
+            })
   }
 
   render()

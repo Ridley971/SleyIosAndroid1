@@ -90,7 +90,7 @@ const styles = StyleSheet.create({
     alignItems:'center',
   },
   options_container: {
-    flex: 3,
+    flex: 1,
     borderColor:"#FFD700",//Gold
     borderWidth:3,
     borderRadius:35,
