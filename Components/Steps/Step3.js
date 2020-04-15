@@ -29,6 +29,19 @@ class Step3 extends React.Component
 
   render()
   {
+
+    this.props.navigation.setOptions({
+        headerRight: () => (
+          <TouchableOpacity
+            onPress={()=> this.props.navigation.popToTop()}>
+                <Text style={{
+                  fontWeight:'bold'}}>
+                Connexion
+                </Text>
+          </TouchableOpacity>
+        ),
+      })
+
     const { date} = this.state
     const today = new Date()
     const year = moment(today).format("YYYY");

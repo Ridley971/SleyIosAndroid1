@@ -29,15 +29,6 @@ function MainStackNavigator() {
                     fontWeight: 'bold'
                   },
                   headerTintColor: 'black',
-                  headerRight:() => (
-                            <TouchableOpacity
-                              onPress={()=> alert('This is a button!')}>
-                                  <Text style={{
-                                    fontWeight:'bold'}}>
-                                  Connexion
-                                  </Text>
-                            </TouchableOpacity>
-                            )
                 }}>
 
         <Stack.Screen

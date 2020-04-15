@@ -14,6 +14,19 @@ class Step6 extends React.Component {
    }
 
   render() {
+
+    this.props.navigation.setOptions({
+        headerRight: () => (
+          <TouchableOpacity
+            onPress={()=> this.props.navigation.popToTop()}>
+                <Text style={{
+                  fontWeight:'bold'}}>
+                Connexion
+                </Text>
+          </TouchableOpacity>
+        ),
+      })
+
     return (
       <SleyBackground>
         <StepsTitle style={styles.text_Title}> Quelle est votre taux de graisse corporelle ?</StepsTitle>
