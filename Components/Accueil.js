@@ -28,10 +28,10 @@ class Accueil extends React.Component
               <Text style={{
                   fontSize: 35,
                   fontWeight:"bold",
-                  color:'#FFD700',
+                  color:'rgba(255, 255, 0, 1)',
                 marginBottom:30}}>Sport Training</Text>
 
-              <CommonText > Nou kontan vwèw <Text style={{color:"#FFD700"}}>{this.userName} </Text>!</CommonText>
+              <CommonText > Nou kontan vwèw <Text style={{color:"rgba(255, 255, 0, 1)"}}>{this.userName} </Text>!</CommonText>
           </View>
           <ScrollView style={styles.options_container}>
               <TouchableOpacity style={styles.touchOption}
@@ -91,7 +91,7 @@ const styles = StyleSheet.create({
   },
   options_container: {
     flex: 1,
-    borderColor:"#FFD700",//Gold
+    borderColor:"rgba(255, 255, 0, 1)",
     borderWidth:3,
     borderRadius:35,
     marginBottom:25,
