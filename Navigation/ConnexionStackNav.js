@@ -36,11 +36,6 @@ function ConnexionStackNav() {
           component={Connexion}
           options={{ headerShown: false }}/>
 
-        <Stack.Screen
-          name='Accueil'
-          component={Accueil}
-          options={{ headerShown: false }}/>
-
 
         <Stack.Screen
           name='Step1'

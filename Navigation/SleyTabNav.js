@@ -4,7 +4,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 import Accueil from "../Components/Accueil"
-import Profil from "../Components/Profil"
+import ProfileStackNav from "./ProfileStackNav"
 import Boutique from "../Components/Boutique"
 import Planning from "../Components/Planning"
 import Connexion from "../Components/Auth/Connexion"
@@ -17,6 +17,7 @@ function SleyTabNav()
   return(
 
         <Tab.Navigator
+            initialRouteName="Accueil"
             tabBarOptions={{
               showLabel:false,
                 style: {
@@ -28,10 +29,10 @@ function SleyTabNav()
           <Tab.Screen name="Planning"
              component={Planning}
              options={{
-                   tabBarLabel: 'Accueil',
+                   tabBarLabel: 'GYM',
                    tabBarIcon: () => {
                      return <Image
-                       source={require('../assets/calendar.png')}
+                       source={require('../assets/gym.png')}
                        style={styles.tab_Icon}/>
                    },
                  }}/>
@@ -59,7 +60,7 @@ function SleyTabNav()
                   }}/>
 
            <Tab.Screen name="Profil"
-            component={Profil}
+            component={ProfileStackNav}
             options={{
                   tabBarLabel: 'Profil',
                   tabBarIcon: () => {
@@ -68,6 +69,7 @@ function SleyTabNav()
                       style={styles.tab_Icon}/>
                   },
                 }}/>
+                
         </Tab.Navigator>
   )
 

@@ -1,5 +1,5 @@
 import React from "react"
-import{ImageBackground, StyleSheet, View,Text} from "react-native"
+import{ImageBackground, StyleSheet, View,Text, SafeAreaView} from "react-native"
 import CommonText from "./CommonText"
 
 class SleyBackground extends React.Component
@@ -8,7 +8,9 @@ class SleyBackground extends React.Component
   {
     return(
           <ImageBackground source={require('../../assets/back.jpg')} style={[styles.image,{...this.props.style}]}>
+
             {this.props.children}
+          
           </ImageBackground>
     )
   }

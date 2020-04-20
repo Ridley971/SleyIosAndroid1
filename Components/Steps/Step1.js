@@ -1,5 +1,5 @@
 import React from 'react'
-import {StyleSheet, View, Text,Button,TouchableOpacity,SafeAreaView } from 'react-native'
+import {StyleSheet, View, Text,Button,TouchableOpacity,ScrollView } from 'react-native'
 import SleyBackground from "../CustomComponent/SleyBackground"
 import CommonText from "../CustomComponent/CommonText"
 import StepsTitle from "../CustomComponent/StepsTitle"
@@ -32,28 +32,39 @@ class Step1 extends React.Component {
       <SleyBackground>
 
             <StepsTitle style={{flex:1}}>Quel est votre objectif ?</StepsTitle>
+            <View style={{flex:6}}>
+            <ScrollView  >
+              <View style={styles.obj_container} >
+                    <TouchableOpacity
+                      style={styles.touchOp}
+                      onPress={() => {this._NextStep(1)}}>
+                      <Text style={styles.text_Obj}>Bruler de la graisse</Text>
+                      <Text style={styles.text_Desc}> Mincir et affiner son corps</Text>
+                    </TouchableOpacity>
 
-            <View style={styles.obj_container} >
-                  <TouchableOpacity
-                    style={styles.touchOp}
-                    onPress={() => {this._NextStep(1)}}>
-                    <Text style={styles.text_Obj}>Bruler de la graisse</Text>
-                    <Text style={styles.text_Desc}>Me tonifier et Mincir</Text>
-                  </TouchableOpacity>
+                    <TouchableOpacity
+                      style={styles.touchOp}
+                      onPress={() => {this._NextStep(2)}}>
+                      <Text style={styles.text_Obj}>Être en bonne santé</Text>
+                      <Text style={styles.text_Desc}>Vivre sainement</Text>
+                    </TouchableOpacity>
 
-                  <TouchableOpacity
-                    style={styles.touchOp}
-                    onPress={() => {this._NextStep(2)}}>
-                    <Text style={styles.text_Obj}>Être en bonne santé</Text>
-                    <Text style={styles.text_Desc}>Vivre sainement</Text>
-                  </TouchableOpacity>
+                    <TouchableOpacity
+                      style={styles.touchOp}
+                      onPress={() => {this._NextStep(3)}}>
+                      <Text style={styles.text_Obj}>Prendre du muscle</Text>
+                      <Text style={styles.text_Desc}>Gagner de la masse musculaire & force</Text>
+                    </TouchableOpacity>
 
-                  <TouchableOpacity
-                    style={styles.touchOp}
-                    onPress={() => {this._NextStep(3)}}>
-                    <Text style={styles.text_Obj}>Prendre du muscle</Text>
-                    <Text style={styles.text_Desc}>Gagner de la masse musculaire & force</Text>
-                  </TouchableOpacity>
+
+                    <TouchableOpacity
+                      style={styles.touchOp}
+                      onPress={() => {this._NextStep(4)}}>
+                      <Text style={styles.text_Obj}>Sculpter les muscles</Text>
+                      <Text style={styles.text_Desc}>Tonifier des zones spécifiques</Text>
+                    </TouchableOpacity>
+              </View>
+            </ScrollView>
             </View>
             <CommonText style={styles.text_Info}>*Sur tous vos ANTREMAN le CARDIO et les ABDOMINAUX travailés; quelque soit
             l'objectif
@@ -67,7 +78,7 @@ const styles = StyleSheet.create({
 
 
 obj_container:{
-  flex:6,
+  flex:1,
   alignItems:"center",
   justifyContent:"center"
 },
