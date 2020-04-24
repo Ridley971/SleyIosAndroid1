@@ -3,6 +3,8 @@ import {StyleSheet, View, Image, TouchableOpacity, Text, ScrollView,Button} from
 import { connect } from 'react-redux'
 import SleyBackground from './CustomComponent/SleyBackground'
 import CommonText from './CustomComponent/CommonText'
+
+
 class Profil extends React.Component {
   constructor(props) {
     super(props);

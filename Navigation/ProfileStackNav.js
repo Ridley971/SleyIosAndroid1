@@ -7,8 +7,7 @@ import Settings from "../Components/Settings"
 
 const Stack = createStackNavigator()
 
-function ProfileStackNav() {
-  return (
+const ProfileStackNav=({navigation}) =>(
       <Stack.Navigator
         initialRouteName='Profil'
         screenOptions={{
@@ -34,6 +33,6 @@ function ProfileStackNav() {
           component={Settings}/>
       </Stack.Navigator>
   )
-}
+
 
 export default ProfileStackNav

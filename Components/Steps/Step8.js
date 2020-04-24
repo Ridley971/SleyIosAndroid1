@@ -14,7 +14,7 @@ class Step8 extends React.Component {
     this.props.dispatch(action)
     this.props.navigation.reset({
               index: 1,
-              routes: [{ name: 'SleyTabNav' }],
+              routes: [{ name: 'SleyDrawerNav' }],
             })
   }
 

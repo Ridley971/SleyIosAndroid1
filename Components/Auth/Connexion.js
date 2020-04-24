@@ -44,7 +44,7 @@ class Connexion extends React.Component
               <TouchableOpacity style={styles.loginBtn}
                   onPress={()=> this.props.navigation.reset({
                             index: 1,
-                            routes: [{ name: 'SleyTabNav' }],
+                            routes: [{ name: 'SleyDrawerNav' }],
                           })}>
                 <Text style={styles.loginText}>LOGIN</Text>
               </TouchableOpacity>
