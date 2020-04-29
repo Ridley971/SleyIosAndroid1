@@ -9,7 +9,6 @@ import SleyDrawerNav from "./SleyDrawerNav"
 import Accueil from "../Components/Accueil"
 import Boutique from "../Components/Boutique"
 import Connexion from "../Components/Auth/Connexion"
-import Resa from "../Components/Fitness/Resa"
 
 const Tab = createBottomTabNavigator();
 
