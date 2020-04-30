@@ -2,6 +2,8 @@ import React, {Component} from 'react';
 import {Alert, StyleSheet, Text, View, TouchableOpacity} from 'react-native';
 import {Agenda,LocaleConfig} from 'react-native-calendars';
 
+import horaires from '../../Helpers/horaires'
+
 LocaleConfig.locales['fr'] = {
   monthNames: ['Janvier','Février','Mars','Avril','Mai','Juin','Juillet','Août','Septembre','Octobre','Novembre','Décembre'],
   monthNamesShort: ['Janv.','Févr.','Mars','Avril','Mai','Juin','Juil.','Août','Sept.','Oct.','Nov.','Déc.'],
@@ -26,6 +28,8 @@ export default class Reserv extends Component {
 
   render() {
 
+
+    //console.log(Object.entries(horaires));
     const marked={
        '2020-04-30': {dots: [this.bienEtre,this.workout]},
 
@@ -33,6 +37,7 @@ export default class Reserv extends Component {
 
        '2020-05-03': { disableTouchEvent: true, disable:true,},
      }
+
     return (
       <Agenda
         items={this.state.items}
@@ -67,42 +72,80 @@ export default class Reserv extends Component {
   }
 
   loadItems(day) {
-    console.log("ICI:"+day.dateString);
-    //Prend en  1er paramètre une fontion et en 2eme un délai avant son exécution en ms
-    setTimeout(() => {
-      for (let i = -2; i < 15; i++) {
-        const time = day.timestamp + i * 24 * 60 * 60 * 1000;
 
+      console.log("CHECK 1:"+ this.state.items.length);
+    //Prend en  1er paramètre une fontion et en 2eme un délai avant son exécution en ms
+    //setTimeout(() => {
+
+        const date = new Date(day.timestamp);
+
+        //On obtient l'index du jour de la semaine (0 à 6) sélectionné dans l'agenda
+        const numDay =  date.getDay()
+        //console.log("Num DAY: "+ numDay );
+
+        //On recherche l'objet dont l'index correspond à l'id du jour
+        const monObj= horaires.find( horaire => horaire.id == numDay)
+        if (monObj)
+        {
+            //console.log(monObj.jour);
+
+            //On obtient le nombres d'horaires pour le jour concerné
+            //correspond au nombre de séances MAX du jour
+            const nSeances= monObj.horaires.length
+            //console.log(nSeances);
+
+            if (!this.state.items[day.dateString]) {
+                this.state.items[day.dateString] = [];
+              for (let i = 0; i < nSeances; i++) {
+
+                this.state.items[day.dateString].push({
+                    debut:monObj.horaires[i].debut,
+                    fin:monObj.horaires[i].fin,
+                    name: 'Item for ' + day.dateString + ' #' + i,
+                })
+              }
+            }
+        }
+
+        console.log("CHECK 2:"+ this.state.items.length);
         //Troncage pour obtenir uniquement la date
-        const strTime = this.timeToString(time);
+        /*const strTime = this.timeToString(day.timestamp);
         if (!this.state.items[strTime]) {
           this.state.items[strTime] = [];
-          const numItems =6;
+          const numItems =7;
           for (let j = 0; j < numItems; j++) {
             this.state.items[strTime].push({
               name: 'Item for ' + strTime + ' #' + j,
               height: Math.max(50, Math.floor(Math.random() * 150))
             });
           }
-        }
-      }
+          console.log(this.state.items);
+        }*/
       const newItems = {};
       Object.keys(this.state.items).forEach(key => {newItems[key] = this.state.items[key];});
       this.setState({
         items: newItems
       });
-    }, 1000);
+      console.log("CHECK 3:"+ this.state.items.length);
+  //  }, 1000);
   }
 
   renderItem(item) {
     return (
-      <TouchableOpacity
-        style={[styles.item, {height: item.height}]}
-        onPress={() => Alert.alert(item.name)}
-      >
-        <Text> TEST</Text>
-        <Text>{item.name}</Text>
-      </TouchableOpacity>
+      <View style={{flexDirection:'row'}}>
+        <View style={{flex:0,padding:10}}>
+            <Text style={{marginTop: 17}}>{item.debut}</Text>
+            <Text style={{marginTop:80}}>{item.fin}</Text>
+        </View>
+
+        <TouchableOpacity
+          style={styles.item}
+          onPress={() => Alert.alert(item.name)}
+        >
+          <Text> TEST</Text>
+          <Text>{item.name}</Text>
+        </TouchableOpacity>
+      </View>
     );
   }
 
@@ -120,18 +163,20 @@ export default class Reserv extends Component {
 
   timeToString(time) {
     const date = new Date(time);
-    return date.toISOString().split('T')[0];
+    if(date.getDay()!==6)
+      return date.toISOString().split('T')[0];
   }
 }
 
 const styles = StyleSheet.create({
   item: {
     backgroundColor: 'white',
-    flex: 1,
+    flex: 3,
     borderRadius: 5,
     padding: 10,
     marginRight: 10,
-    marginTop: 17
+    marginTop: 17,
+    height: 130
   },
   emptyDate: {
     height: 15,
