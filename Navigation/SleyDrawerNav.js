@@ -2,7 +2,6 @@ import * as React from 'react';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 
 
-import Azone from '../Components/Training/Azone'
 import Tutos from '../Components/Training/Tutos'
 import AntrenmanStackNav from './AntrenmanStackNav'
 import SleyTabNav from './SleyTabNav'

@@ -1,13 +1,13 @@
 const initialState = {
-        pseudo:"",
-        idObj: 0,
-        sexe:"",
-        dateN:"",
-        idTxAct:0,
-        idTxCible:0,
+        pseudo:"Le Rid",
+        idObj: 3,
+        sexe:"M",
+        dateN:"29-11-1993",
+        idTxAct:1,
+        idTxCible:3,
         idForm:0,
-        taille:0,
-        poids:0,
+        taille:1.98,
+        poids:90,
     }
 
 

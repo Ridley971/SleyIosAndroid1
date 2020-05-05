@@ -9,7 +9,7 @@ import Store from "./Store/configureStore"
 
 export default function App()
 {
-  const isLoggedIn=false
+  const isLoggedIn=true
   return (
       <Provider store={Store}>
         <NavigationContainer>

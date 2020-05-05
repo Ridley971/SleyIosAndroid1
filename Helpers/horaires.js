@@ -162,5 +162,16 @@ export default data =[
         },
     ]
   },
+  {
+    id:6,
+    jour:'Dimanche',
+    horaires:
+    [
+      {
+        debut:"9h30",
+        fin:"22h00"
+      },
+    ],
+  },
 
 ]

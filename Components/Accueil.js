@@ -8,7 +8,6 @@ class Accueil extends React.Component
 {
   constructor(props) {
     super(props);
-    this.userName= "Le Rid";
   }
 
   render()
@@ -31,7 +30,7 @@ class Accueil extends React.Component
                   color:'rgba(255, 255, 0, 1)',
                 marginBottom:30}}>Sport Training</Text>
 
-              <CommonText > Nou kontan vwèw <Text style={{color:"rgba(255, 255, 0, 1)"}}>{this.userName} </Text>!</CommonText>
+              <CommonText > Nou kontan vwèw <Text style={{color:"rgba(255, 255, 0, 1)"}}>{this.props.pseudo} </Text>!</CommonText>
           </View>
           <ScrollView style={styles.options_container}>
               <TouchableOpacity style={styles.touchOption}

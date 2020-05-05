@@ -66,7 +66,7 @@ class Step1 extends React.Component {
               </View>
             </ScrollView>
             </View>
-            <CommonText style={styles.text_Info}>*Sur tous vos ANTREMAN le CARDIO et les ABDOMINAUX travailés; quelque soit
+            <CommonText style={styles.text_Info}>*Sur tous vos ANTREMAN le CARDIO et les ABDOMINAUX sont travaillés; quelque soit
             l'objectif
             </CommonText>
     </SleyBackground>
@@ -112,7 +112,8 @@ touchOp:{
     flex:1,
     textAlign:'center',
     color: 'red',
-    fontSize:15
+    fontSize:15,
+    top: 10
   }
 })
 

@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Alert, StyleSheet, Text, View, TouchableOpacity} from 'react-native';
+import {Alert, StyleSheet, Text, View, TouchableOpacity, Image} from 'react-native';
 import {Agenda,LocaleConfig} from 'react-native-calendars';
 
 import horaires from '../../Helpers/horaires'
@@ -15,12 +15,15 @@ LocaleConfig.defaultLocale = 'fr';
 
 
 export default class Reserv extends Component {
+
+
   constructor(props) {
     super(props);
 
 
     this.bienEtre = {key:'bienEtre', color: 'blue', selectedDotColor: 'blue'};
     this.workout = {key:'workout', color: 'green',selectedDotColor: 'yellow'};
+    //this.items={}
     this.state = {
       items: {}
     };
@@ -28,6 +31,17 @@ export default class Reserv extends Component {
 
   render() {
 
+        this.props.navigation.setOptions({
+              headerRight: () => (
+                <TouchableOpacity
+                  onPress={()=>   this.props.navigation.navigate("Planning")}>
+                  <Image
+                    source={require('../../assets/calendar.png')}
+                    style={{width: 40, height: 40, right: 15} }/>
+                </TouchableOpacity>
+              ),
+
+          })
 
     //console.log(Object.entries(horaires));
     const marked={
@@ -39,14 +53,14 @@ export default class Reserv extends Component {
      }
 
     return (
-      <Agenda
+       <Agenda
         items={this.state.items}
         loadItemsForMonth={this.loadItems.bind(this)}
         selected={new Date()}
         firstDay={1}
         renderItem={this.renderItem.bind(this)}
-        renderEmptyDate={this.renderEmptyDate.bind(this)}
-        rowHasChanged={this.rowHasChanged.bind(this)}
+        //renderEmptyDate={this.renderEmptyDate.bind(this)}
+        //rowHasChanged={this.rowHasChanged.bind(this)}
         minDate={new Date()}
         markingType={'multi-dot'}
         markedDates={marked}
@@ -71,9 +85,8 @@ export default class Reserv extends Component {
     );
   }
 
-  loadItems(day) {
-
-      console.log("CHECK 1:"+ this.state.items.length);
+loadItems(day) {
+      const items= this.state.items
     //Prend en  1er paramètre une fontion et en 2eme un délai avant son exécution en ms
     //setTimeout(() => {
 
@@ -94,60 +107,75 @@ export default class Reserv extends Component {
             const nSeances= monObj.horaires.length
             //console.log(nSeances);
 
-            if (!this.state.items[day.dateString]) {
-                this.state.items[day.dateString] = [];
+           if (!items[day.dateString]) {
+                items[day.dateString] = [];
               for (let i = 0; i < nSeances; i++) {
 
-                this.state.items[day.dateString].push({
+                items[day.dateString].push({
                     debut:monObj.horaires[i].debut,
                     fin:monObj.horaires[i].fin,
-                    name: 'Item for ' + day.dateString + ' #' + i,
+                    name:  day.dateString ,
                 })
               }
             }
-        }
 
-        console.log("CHECK 2:"+ this.state.items.length);
+        }
         //Troncage pour obtenir uniquement la date
-        /*const strTime = this.timeToString(day.timestamp);
-        if (!this.state.items[strTime]) {
-          this.state.items[strTime] = [];
-          const numItems =7;
-          for (let j = 0; j < numItems; j++) {
-            this.state.items[strTime].push({
-              name: 'Item for ' + strTime + ' #' + j,
-              height: Math.max(50, Math.floor(Math.random() * 150))
-            });
-          }
-          console.log(this.state.items);
-        }*/
+
       const newItems = {};
-      Object.keys(this.state.items).forEach(key => {newItems[key] = this.state.items[key];});
+      Object.keys(items).forEach(key => {newItems[key] = items[key];});
       this.setState({
         items: newItems
       });
-      console.log("CHECK 3:"+ this.state.items.length);
+
   //  }, 1000);
-  }
-
-  renderItem(item) {
-    return (
-      <View style={{flexDirection:'row'}}>
-        <View style={{flex:0,padding:10}}>
-            <Text style={{marginTop: 17}}>{item.debut}</Text>
-            <Text style={{marginTop:80}}>{item.fin}</Text>
-        </View>
-
-        <TouchableOpacity
-          style={styles.item}
-          onPress={() => Alert.alert(item.name)}
-        >
-          <Text> TEST</Text>
-          <Text>{item.name}</Text>
-        </TouchableOpacity>
+}
+renderItem(item) {
+  return (
+    <View style={{flexDirection:'row'}}>
+      <View style={{flex:0,padding:10}}>
+          <Text style={{marginTop: 17}}>{item.debut}</Text>
+          <Text style={{marginTop:80}}>{item.fin}</Text>
       </View>
-    );
-  }
+
+      <TouchableOpacity
+        style={styles.item}
+        onPress={()=>{this.openAlert(item)}}
+      >
+        <Text> TEST</Text>
+        <Text>{item.name}</Text>
+      </TouchableOpacity>
+    </View>
+  );
+}
+
+
+
+openAlert(item){
+        const date = new Date(item.name)
+        //  console.log(date.toLocaleString('fr-FR', {timeZone: "UTC", day: "2-digit", month: "short", year: "numeric", weekday: "long"}))
+        const strFullDate = date.toLocaleString('fr-FR', {timeZone: "UTC", day: "2-digit", month: "short", year: "numeric", weekday: "long"})
+        if (date.getDay()== 6) {
+          Alert.alert("FERMÉ !!")
+        }
+        else {
+          Alert.alert(
+            strFullDate ,
+            "Voulez-vous réserver votre séance  \n De : " + item.debut + " à "+ item.fin +" ?",
+            [
+              {
+                text: "Annuler",
+                onPress: () => console.log("Cancel Pressed"),
+                style: "cancel"
+              },
+              { text: "OK", onPress: () => console.log("OK Pressed") }
+            ],
+            { cancelable: false }
+          );
+        }
+      }
+
+
 
   renderEmptyDate() {
     return (

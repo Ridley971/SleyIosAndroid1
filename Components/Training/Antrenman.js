@@ -25,7 +25,7 @@ class Antrenman extends React.Component {
         <SleyBackground style={{flex:1, justifyContent:'center', alignItems:'center'}}>
           <TouchableOpacity
             style={styles.touchOp}
-            onPress={() => this.props.navigation.navigate("Reserv")}>
+            onPress={() => this.props.navigation.navigate("CheckObj")}>
             <Text style={styles.text_Obj}>Vote {'\n'}& {'\n'}Réservation</Text>
             <Text style={styles.text_Desc}>
               Voter pour les séances collectives avec le coach et faites vos réservations
