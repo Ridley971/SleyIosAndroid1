@@ -1,50 +1,49 @@
 import React from 'react'
-import {StyleSheet, View,Image, Text,TouchableOpacity} from 'react-native'
+import {StyleSheet, View,ScrollView, Text,TouchableOpacity} from 'react-native'
 import RadioForm, {RadioButton, RadioButtonInput, RadioButtonLabel} from 'react-native-simple-radio-button';
 import { connect } from 'react-redux'
 
 import SleyBackground from '../CustomComponent/SleyBackground'
 
-import objectifs from '../../Helpers/objectifs'
+import membres from '../../Helpers/membres'
 
-class CheckObj extends React.Component {
+class SelectMembre extends React.Component {
 constructor(props)
 {
   super(props)
-  this.objPrincipal= this.props.idObj
   this.radio_props = [
   ];
 
   this.state = {
-    value: this.objPrincipal
+    value: 1
   };
   this.loadRadio()
 }
 
-
 loadRadio(){
-  Object.keys(objectifs).forEach(key =>{
+  Object.keys(membres).forEach(key =>{
     this.radio_props.push({
-        label:objectifs[key].name,
-        value:objectifs[key].id
+        label:membres[key].nom,
+        value:membres[key].id
       })
     }
   )
 
 }
 
+
   render()
   {
 
-
+    console.log("VALUE:"+this.state.value);
     return(
       <SleyBackground style={{flex:1, justifyContent:'center'}}>
-          <View style={{flex: 1, padding:10}}>
-            <Text style={styles.text_Header}> Choisissez votre objectif pour la séance </Text>
-            <Text style={styles.text_Desc}>(Par défaut votre objectif prinicpal est sélectionné)</Text>
+          <View style={{ padding:10}}>
+            <Text style={styles.text_Header}> Choisissez la zone que vous souhaitez travailler </Text>
+            <Text style={styles.text_Desc}>("Tout le corps" vous permet de suivre votre objectif indiféremment de la zone)</Text>
           </View>
-          <View style={{flex: 3, alignItems:"center"}}>
-          <RadioForm>
+          <ScrollView style={{flex: 1, padding:20}}>
+            <RadioForm>
           {
               this.radio_props.map((obj, i) => (
               <RadioButton  key={i} >
@@ -71,10 +70,10 @@ loadRadio(){
               </RadioButton>
               ))
           }
-          </RadioForm>
-          </View>
-          <View style={{flex: 1}}>
-          <TouchableOpacity style={styles.touchButton} onPress={() => {this.props.navigation.navigate("SelectMembre")}}>
+            </RadioForm>
+          </ScrollView>
+          <View >
+          <TouchableOpacity style={styles.touchButton} onPress={() => {this.props.navigation.navigate("Reserv")}}>
             <Text style={styles.text_Button}>Valider</Text>
           </TouchableOpacity>
           </View>
@@ -124,4 +123,4 @@ const mapStateToProps=(state)=>
   return state
 
 }
-export default connect(mapStateToProps)(CheckObj)
+export default connect(mapStateToProps)(SelectMembre)

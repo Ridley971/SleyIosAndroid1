@@ -33,12 +33,20 @@ export default class Reserv extends Component {
 
         this.props.navigation.setOptions({
               headerRight: () => (
-                <TouchableOpacity
-                  onPress={()=>   this.props.navigation.navigate("Planning")}>
-                  <Image
-                    source={require('../../assets/calendar.png')}
-                    style={{width: 40, height: 40, right: 15} }/>
-                </TouchableOpacity>
+                <View style={{flexDirection:'row'}}>
+                  <TouchableOpacity
+                    onPress={()=>  {console.log("Press Help");}}>
+                    <Image
+                      source={require('../../assets/help.png')}
+                      style={{width: 40, height: 40, right: 15} }/>
+                  </TouchableOpacity>
+                  <TouchableOpacity
+                    onPress={()=>   this.props.navigation.navigate("Planning")}>
+                    <Image
+                      source={require('../../assets/calendar.png')}
+                      style={{width: 40, height: 40, right: 5} }/>
+                  </TouchableOpacity>
+              </View>
               ),
 
           })
@@ -64,8 +72,8 @@ export default class Reserv extends Component {
         minDate={new Date()}
         markingType={'multi-dot'}
         markedDates={marked}
-        onDayPress={(day) => {console.log('selected day', day)}}
-        onMonthChange={(month) => {console.log('month changed', month)}}
+        //onDayPress={(day) => {console.log('selected day', day)}}
+        //onMonthChange={(month) => {console.log('month changed', month)}}
         theme={{calendarBackground: 'black',
                 agendaKnobColor: 'yellow',
                 agendaDayNumColor: 'green',

@@ -7,7 +7,7 @@ import Azone from "../Components/Training/Azone"
 import Reserv from "../Components/Training/Reserv"
 import Planning from "../Components/Planning"
 import CheckObj from "../Components/Training/CheckObj"
-
+import SelectMembre from "../Components/Training/SelectMembre"
 const Stack = createStackNavigator()
 
 const AntrenmanStackNav=({navigation}) =>(
@@ -57,6 +57,13 @@ const AntrenmanStackNav=({navigation}) =>(
               component={CheckObj}
               options={{
                 title: 'Vérifier votre objectif',
+              }}/>
+
+            <Stack.Screen
+              name='SelectMembre'
+              component={SelectMembre}
+              options={{
+                title: 'Sélection',
               }}/>
       </Stack.Navigator>
   )
