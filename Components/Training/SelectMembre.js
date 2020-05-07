@@ -34,15 +34,19 @@ loadRadio(){
 
   render()
   {
+    //Si on a choisi Antrenman on se rend vers l'agenda
+    //Sinon vers weekCalendar
+    const nextComponent= this.props.route.params.choix=="A"?"Reserv":"VoteAgenda"
 
-    console.log("VALUE:"+this.state.value);
     return(
       <SleyBackground style={{flex:1, justifyContent:'center'}}>
           <View style={{ padding:10}}>
             <Text style={styles.text_Header}> Choisissez la zone que vous souhaitez travailler </Text>
             <Text style={styles.text_Desc}>("Tout le corps" vous permet de suivre votre objectif indiféremment de la zone)</Text>
           </View>
-          <ScrollView style={{flex: 1, padding:20}}>
+          <ScrollView
+          style={{flex: 1, padding:20}}
+          persistentScrollbar={true}>
             <RadioForm>
           {
               this.radio_props.map((obj, i) => (
@@ -73,7 +77,7 @@ loadRadio(){
             </RadioForm>
           </ScrollView>
           <View >
-          <TouchableOpacity style={styles.touchButton} onPress={() => {this.props.navigation.navigate("Reserv")}}>
+          <TouchableOpacity style={styles.touchButton} onPress={() => {this.props.navigation.navigate(nextComponent)}}>
             <Text style={styles.text_Button}>Valider</Text>
           </TouchableOpacity>
           </View>

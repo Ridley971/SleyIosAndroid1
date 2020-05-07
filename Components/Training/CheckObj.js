@@ -11,6 +11,9 @@ class CheckObj extends React.Component {
 constructor(props)
 {
   super(props)
+  //Vérifier si on vote (V) ou on réserve un Antrenman (A)
+  this.choix=this.props.route.params.choix
+
   this.objPrincipal= this.props.idObj
   this.radio_props = [
   ];
@@ -35,12 +38,10 @@ loadRadio(){
 
   render()
   {
-
-
     return(
       <SleyBackground style={{flex:1, justifyContent:'center'}}>
           <View style={{flex: 1, padding:10}}>
-            <Text style={styles.text_Header}> Choisissez votre objectif pour la séance </Text>
+            <Text style={styles.text_Header}> Choisissez votre objectif  </Text>
             <Text style={styles.text_Desc}>(Par défaut votre objectif prinicpal est sélectionné)</Text>
           </View>
           <View style={{flex: 3, alignItems:"center"}}>
@@ -74,7 +75,7 @@ loadRadio(){
           </RadioForm>
           </View>
           <View style={{flex: 1}}>
-          <TouchableOpacity style={styles.touchButton} onPress={() => {this.props.navigation.navigate("SelectMembre")}}>
+          <TouchableOpacity style={styles.touchButton} onPress={() => {this.props.navigation.navigate("SelectMembre",{choix: this.choix})}}>
             <Text style={styles.text_Button}>Valider</Text>
           </TouchableOpacity>
           </View>

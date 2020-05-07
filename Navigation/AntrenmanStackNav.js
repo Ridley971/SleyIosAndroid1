@@ -5,6 +5,7 @@ import {StyleSheet, View, Image,TouchableOpacity} from 'react-native'
 import Antrenman from "../Components/Training/Antrenman"
 import Azone from "../Components/Training/Azone"
 import Reserv from "../Components/Training/Reserv"
+import VoteAgenda from "../Components/Training/VoteAgenda"
 import Planning from "../Components/Planning"
 import CheckObj from "../Components/Training/CheckObj"
 import SelectMembre from "../Components/Training/SelectMembre"
@@ -43,6 +44,13 @@ const AntrenmanStackNav=({navigation}) =>(
             component={Reserv}
             options={{
               title: 'Réserver',
+            }}/>
+
+          <Stack.Screen
+            name='VoteAgenda'
+            component={VoteAgenda}
+            options={{
+              title: 'Votez',
             }}/>
 
           <Stack.Screen
