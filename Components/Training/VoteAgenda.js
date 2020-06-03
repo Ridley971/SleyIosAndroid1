@@ -16,31 +16,7 @@ import Accordion from 'react-native-collapsible/Accordion';
 
 import horaires from '../../Helpers/horaires'
 
-const BACON_IPSUM =
-  'Bacon ipsum dolor amet chuck turducken landjaeger tongue spare ribs. Picanha beef prosciutto meatball turkey shoulder shank salami cupim doner jowl pork belly cow. Chicken shankle rump swine tail frankfurter meatloaf ground round flank ham hock tongue shank andouille boudin brisket. ';
-
-const CONTENT = [
-  {
-    title: 'First',
-    content: BACON_IPSUM,
-  },
-  {
-    title: 'Second',
-    content: BACON_IPSUM,
-  },
-  {
-    title: 'Third',
-    content: BACON_IPSUM,
-  },
-  {
-    title: 'Fourth',
-    content: BACON_IPSUM,
-  },
-  {
-    title: 'Fifth',
-    content: BACON_IPSUM,
-  },
-];
+import SleyBackground from '../CustomComponent/SleyBackground'
 
 const SELECTORS = [
   {
@@ -61,6 +37,7 @@ export default class App extends Component {
     activeSections: [],
     collapsed: true,
     checked:false,
+    jours:[[],[],[],[],[],[],[],]
   };
 
   toggleExpanded = () => {
@@ -86,8 +63,27 @@ export default class App extends Component {
   };
 
 
+isChecked =(idJour, debut) =>
+  {
+    const updateJours =  [...this.state.jours]
+    const selected = this.state.jours[idJour].includes(debut);
+    //Si le tableau contient l'horaires on le supprime
+    if(selected)
+    {
+      updateJours[idJour] = updateJours[idJour].filter(hor => hor !== debut)
+      this.setState(prevState => ({jours : updateJours }))
+    }
+    //Sinon on l'ajout au state
+    else {
+      updateJours[idJour]= [...updateJours[idJour],debut ]
+      this.setState(prevState => ({jours: updateJours}))
 
-  renderContent(section, _, isActive) {
+    }
+
+  }
+
+  renderContent = (section, _, isActive) => {
+    //Affiche les horaires du jour sélectionné
     const hor= section.horaires
     return (
       <Animatable.View
@@ -101,7 +97,10 @@ export default class App extends Component {
           <CheckBox
             style={styles.headerText}
             title= {"De: "+ hor[key].debut +" à "+ hor[key].fin }
-            checked={false}
+            //Si horaire de debut est sélectionné
+            checked={this.state.jours[section.id].includes(hor[key].debut) ? true : false}
+
+            onPress={() => {this.isChecked(section.id,hor[key].debut)} }
           />)
       })}
       </Animatable.View>
@@ -111,14 +110,17 @@ export default class App extends Component {
   render() {
     const { activeSections } = this.state;
 
+    console.log(activeSections);
     return (
-      <View style={styles.container}>
+      <SleyBackground style={styles.container}>
         <Text style={styles.title}>Accordion Example</Text>
         <ScrollView contentContainerStyle={{ paddingTop: 30 }}>
           <View style={styles.selectors}>
             <Text style={styles.selectTitle}>Select:</Text>
 
-            {SELECTORS.map(selector => (
+          {/*Permet de choisir la selection a ouvrir*/}
+            {
+              SELECTORS.map(selector => (
               <TouchableOpacity
                 key={selector.title}
                 onPress={() => this.setSections([selector.value])}
@@ -135,9 +137,11 @@ export default class App extends Component {
                 </View>
               </TouchableOpacity>
             ))}
+
           </View>
           <Accordion
             activeSections={activeSections}
+            //liste des horaires des séances par jour
             sections={horaires}
             //touchableComponent={CheckBox}
             //Permet d'avoir plusieurs sections activent
@@ -148,12 +152,33 @@ export default class App extends Component {
             onChange={this.setSections}
           />
         </ScrollView>
-      </View>
+        <TouchableOpacity style={styles.touchButton} onPress={() => {console.log(this.state.jours);}}>
+          <Text style={styles.text_Button}>Envoyer mon vote</Text>
+        </TouchableOpacity>
+      </SleyBackground>
     );
   }
 }
 
 const styles = StyleSheet.create({
+
+    touchButton:
+  {
+      justifyContent:"flex-end",
+      borderColor:'#C0C0C0C0',
+      backgroundColor:'rgba(255, 255, 0, 0.7)',
+      borderWidth:3,
+      borderRadius:35,
+      padding:20,
+      marginBottom:30
+
+    },
+    text_Button:{
+      textAlign:'center',
+      fontWeight: 'bold',
+      fontSize: 30,
+
+    },
   container: {
     flex: 1,
     backgroundColor: '#F5FCFF',
@@ -164,6 +189,7 @@ const styles = StyleSheet.create({
     fontSize: 22,
     fontWeight: '300',
     marginBottom: 20,
+    color:'#C0C0C0C0'
   },
   header: {
     backgroundColor: '#F5FCFF',

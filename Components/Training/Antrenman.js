@@ -13,6 +13,14 @@ class Antrenman extends React.Component {
     //Mettre en place l'Antrenman Zone
     this.AZoneActif=false
     this.props.navigation.setOptions({
+          headerLeft: () => (
+            <TouchableOpacity
+              onPress={()=>   this.props.navigation.navigate("Accueil")}>
+              <Image
+                source={require('../../assets/home.png')}
+                style={{width: 40, height: 40, left: 15} }/>
+            </TouchableOpacity>
+          ),
           headerRight: () => (
             <TouchableOpacity
               onPress={()=>   this.props.navigation.navigate("Planning")}>

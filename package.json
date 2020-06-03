@@ -44,5 +44,18 @@
     "babel-preset-expo": "~8.0.0",
     "react-devtools": "^4.6.0"
   },
-  "private": true
+  "private": true,
+  "name": "apisley",
+  "version": "1.0.0",
+  "description": "API REST for SLEY Apps",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ridley971/SleyIosAndroid.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Ridley971/SleyIosAndroid/issues"
+  },
+  "homepage": "https://github.com/Ridley971/SleyIosAndroid#readme"
 }
