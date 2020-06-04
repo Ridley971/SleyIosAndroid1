@@ -23,7 +23,7 @@ Coach.create = (newCoach, result) => {
 }
 
 Coach.findById = (coachID, result) => {
-  sql.query('SELECT * FROM Coachs WHERE IdCoa = '+coachID, (err, res) =>{
+  sql.query('SELECT * FROM Coachs WHERE id = '+coachID, (err, res) =>{
               if(err){
                   console.log("error: ", err);
                   result(err, null);

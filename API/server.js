@@ -15,6 +15,9 @@ app.get("/", (req,res) => {
       });
 
 require("./routes/coach.routes.js")(app)
+require("./routes/client.routes.js")(app)
+require("./routes/partenaire.routes.js")(app)
+require("./routes/reservation.routes.js")(app)
 //set port, listen for requests
 app.listen(3000, ()=> {
             console.log("server is running on port 3000");
