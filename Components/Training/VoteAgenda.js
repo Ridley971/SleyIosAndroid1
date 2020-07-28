@@ -116,7 +116,6 @@ isChecked =(idJour, debut) =>
         <Text style={styles.title}>Accordion Example</Text>
         <ScrollView contentContainerStyle={{ paddingTop: 30 }}>
           <View style={styles.selectors}>
-            <Text style={styles.selectTitle}>Select:</Text>
 
           {/*Permet de choisir la selection a ouvrir*/}
             {
@@ -206,10 +205,10 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
   },
   active: {
-    backgroundColor: 'yellow',
+    backgroundColor: 'rgba(255,255,0,0.6)',
   },
   inactive: {
-    backgroundColor: 'rgba(245,252,255,1)',
+    backgroundColor: 'rgba(255,255,255,0.6)',
   },
   selectors: {
     marginBottom: 10,

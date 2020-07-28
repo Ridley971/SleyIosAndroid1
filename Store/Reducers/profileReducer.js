@@ -8,12 +8,22 @@ const initialState = {
         idForm:0,
         taille:1.98,
         poids:90,
+        isLogged: false
     }
 
 
 function updateProfile(state = initialState, action) {
   let nextState
   switch (action.type) {
+    case 'UPDATE_LOGIN':
+    {
+          nextState =
+          {
+            ...state,
+            isLogged: action.value
+          }
+      return nextState || state
+    }
     case 'UPDATE_OBJ':
     {
           nextState =

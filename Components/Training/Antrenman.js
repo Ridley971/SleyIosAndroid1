@@ -15,9 +15,9 @@ class Antrenman extends React.Component {
     this.props.navigation.setOptions({
           headerLeft: () => (
             <TouchableOpacity
-              onPress={()=>   this.props.navigation.navigate("Accueil")}>
+              onPress={()=>  this.props.navigation.toggleDrawer()}>
               <Image
-                source={require('../../assets/home.png')}
+                source={require('../../assets/menu.png')}
                 style={{width: 40, height: 40, left: 15} }/>
             </TouchableOpacity>
           ),
@@ -54,7 +54,7 @@ class Antrenman extends React.Component {
             }
           <TouchableOpacity
             style={styles.touchOp}
-            onPress={() => this.props.navigation.navigate("CheckObj",{choix:"A"})}>
+            onPress={() => this.props.navigation.navigate("SelectMembre",{choix:"A"})}>
             <Text style={styles.text_Obj}>Antrenman</Text>
             <Text style={styles.text_Desc}>
               Réservez vos séances d'Antrenman

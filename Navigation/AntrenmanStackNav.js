@@ -3,6 +3,7 @@ import { createStackNavigator } from '@react-navigation/stack'
 import {StyleSheet, View, Image,TouchableOpacity} from 'react-native'
 
 import Antrenman from "../Components/Training/Antrenman"
+import Accueil from "./SleyTabNav"
 import Azone from "../Components/Training/Azone"
 import Reserv from "../Components/Training/Reserv"
 import VoteAgenda from "../Components/Training/VoteAgenda"
@@ -31,6 +32,10 @@ const AntrenmanStackNav=({navigation}) =>(
           options={{
             title: 'Antrenman',
           }}/>
+
+          <Stack.Screen
+            name='Accueil'
+            component={Accueil}/>
 
         <Stack.Screen
           name='Azone'

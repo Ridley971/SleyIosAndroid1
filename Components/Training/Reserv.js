@@ -40,13 +40,13 @@ export default class Reserv extends Component {
                     onPress={()=>  {console.log("Press Help");}}>
                     <Image
                       source={require('../../assets/help.png')}
-                      style={{width: 40, height: 40, right: 15} }/>
+                      style={{width: 20, height: 20, right: 35} }/>
                   </TouchableOpacity>
                   <TouchableOpacity
                     onPress={()=>   this.props.navigation.navigate("Planning")}>
                     <Image
                       source={require('../../assets/calendar.png')}
-                      style={{width: 40, height: 40, right: 5} }/>
+                      style={{width: 20, height: 20, right: 5} }/>
                   </TouchableOpacity>
               </View>
               ),

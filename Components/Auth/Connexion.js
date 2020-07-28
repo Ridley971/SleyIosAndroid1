@@ -1,9 +1,37 @@
 import React from "react"
 import {TextInput,Button, StyleSheet,View, TouchableOpacity, Text} from "react-native"
 import SleyBackground from "../CustomComponent/SleyBackground"
+import Expo from "expo"
 
 class Connexion extends React.Component
 {
+  constructor(props){
+    super(props)
+    this.state= {signedIn:false, name: "", photoUrl:""}
+  }
+
+
+    signIn = async() =>{
+      try {
+        const result = await Expo.Google.logInAsync({
+          androidClientId:"706610168610-70veeuek7gsuvmhfahunnk97lp307vt5.apps.googleusercontent.com",
+          iosClientId:"706610168610-p1og57ioccqmu0oi2h3518m19jggverp.apps.googleusercontent.com",
+          scopes: ["profile", "email"]
+        })
+
+        if (result.type ==="success") {
+            this.setState({
+              signedIn: true,
+              name: result.user.name,
+              photoUrl: result.user.photoUrl
+            })
+        } else {
+
+        }
+      } catch (e) {
+          console.log("error: ", e);
+      }
+    }
   render()
   {
     return(

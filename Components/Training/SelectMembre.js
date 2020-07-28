@@ -6,6 +6,7 @@ import { connect } from 'react-redux'
 import SleyBackground from '../CustomComponent/SleyBackground'
 
 import membres from '../../Helpers/membres'
+import objectifs from '../../Helpers/objectifs'
 
 class SelectMembre extends React.Component {
 constructor(props)
@@ -31,9 +32,15 @@ loadRadio(){
 
 }
 
+getObjById(idObj){
+  const obj = objectifs.find( objectif => objectif.id === idObj)
+  return obj.name;
+}
+
 
   render()
   {
+    console.log(this.props);
     //Si on a choisi Antrenman on se rend vers l'agenda
     //Sinon vers weekCalendar
     const nextComponent= this.props.route.params.choix=="A"?"Reserv":"VoteAgenda"
@@ -42,6 +49,7 @@ loadRadio(){
       <SleyBackground style={{flex:1, justifyContent:'center'}}>
           <View style={{ padding:10}}>
             <Text style={styles.text_Header}> Choisissez la zone que vous souhaitez travailler </Text>
+            <Text style={styles.text_Desc}>Votre objectif est : {this.getObjById(this.props.idObj)}</Text>
             <Text style={styles.text_Desc}>("Tout le corps" vous permet de suivre votre objectif indiféremment de la zone)</Text>
           </View>
           <ScrollView
@@ -96,7 +104,8 @@ const styles={
     borderWidth:3,
     borderRadius:35,
     padding:20,
-    marginBottom:30
+    marginBottom:30,
+    padding:10
 
   },
   text_Button:{

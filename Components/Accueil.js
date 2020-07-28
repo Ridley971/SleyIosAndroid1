@@ -1,5 +1,5 @@
 import React from 'react'
-import  {StyleSheet,View,Button,Image,Text,Alert, TouchableOpacity,ScrollView} from 'react-native'
+import  {Animated,StyleSheet,View,Button,Image,Text,Alert, TouchableOpacity,ScrollView} from 'react-native'
 import CommonText from "./CustomComponent/CommonText"
 import {connect} from "react-redux"
 
@@ -10,11 +10,15 @@ class Accueil extends React.Component
     super(props);
   }
 
+
   render()
   {
     console.log(this.props);
     return(
      <View style={styles.main_container}>
+          <TouchableOpacity style={{height:75, width:75, position: 'absolute', top:50,right:10}}>
+            <Image style={{height:60, width:60}} source={require('../assets/cardiogram.png')}/>
+          </TouchableOpacity>
           <View style={styles.logo_container}>
           <Image style={{height:100, width:100}} source={require('../assets/icon.png')}/>
           </View>
@@ -33,13 +37,6 @@ class Accueil extends React.Component
               <CommonText > Nou kontan vwèw <Text style={{color:"rgba(255, 255, 0, 1)"}}>{this.props.pseudo} </Text>!</CommonText>
           </View>
           <ScrollView style={styles.options_container}>
-              <TouchableOpacity style={styles.touchOption}
-                onPress={()=> this.props.navigation.navigate("Profil")}>
-                <View style={styles.touch_container}>
-                  <Image style={{height:40, width:40}} source={require('../assets/Gprofile.png')}/>
-                  <Text style={styles.text_Common}> Profil</Text>
-                </View>
-              </TouchableOpacity>
               <TouchableOpacity style={styles.touchOption}>
                 <View style={styles.touch_container}>
                   <Image style={{height:40, width:40}} source={require('../assets/Gcalendar.png')}/>

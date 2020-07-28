@@ -1,5 +1,5 @@
 import 'react-native-gesture-handler';
-import * as React from 'react';
+import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import ConnexionStackNav from './Navigation/ConnexionStackNav'
 import SleyTabNav from './Navigation/SleyTabNav'
@@ -7,23 +7,25 @@ import  SleyDrawerNav from './Navigation/SleyDrawerNav'
 import {Provider} from "react-redux"
 import Store from "./Store/configureStore"
 
-export default function App()
+export default class App extends React.Component
 {
-  const isLoggedIn=true
-  return (
-      <Provider store={Store}>
-        <NavigationContainer>
-          {
-            isLoggedIn ? (
-             <SleyDrawerNav/>
-           ) : (
 
-             <ConnexionStackNav/>
-           )
-         }
+    render(){
+        return (
+        <Provider store={Store}>
+          <NavigationContainer>
+            {
+              false ? (
+               <SleyDrawerNav/>
+             ) : (
 
-        </NavigationContainer>
-      </Provider>
-    )
+               <ConnexionStackNav/>
+             )
+           }
+
+          </NavigationContainer>
+        </Provider>
+      )
+    }
 
 }

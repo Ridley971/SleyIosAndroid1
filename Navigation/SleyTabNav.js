@@ -30,7 +30,7 @@ const  SleyTabNav =({navigation})=>(
                    tabBarLabel: 'GYM',
                    tabBarIcon: () => {
                      return <Image
-                       source={require('../assets/gym.png')}
+                       source={require('../assets/menu.png')}
                        style={styles.tab_Icon}/>
                    },
                    tabBarButton: props =>(
@@ -81,7 +81,7 @@ const  SleyTabNav =({navigation})=>(
 
 const styles = StyleSheet.create({
   tab_Icon: {
-    height:40, width:40
+    height:20, width:20
   },
 })
 export default SleyTabNav

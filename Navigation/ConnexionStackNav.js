@@ -4,6 +4,8 @@ import { createStackNavigator } from '@react-navigation/stack'
 import {TouchableOpacity,Text} from 'react-native'
 
 import Connexion from "../Components/Auth/Connexion"
+import RsConnect from "../Components/Auth/RsConnection"
+import Profile from "../Components/Auth/Profile"
 import Accueil from "../Components/Accueil"
 import Step1 from '../Components/Steps/Step1'
 import Step2 from '../Components/Steps/Step2'
@@ -37,6 +39,13 @@ function ConnexionStackNav() {
           options={{ headerShown: false }}/>
 
 
+          <Stack.Screen
+            name='RsConnect'
+            component={RsConnect}/>
+
+                      <Stack.Screen
+                        name='Profile'
+                        component={Profile}/>
         <Stack.Screen
           name='Step1'
           component={Step1}/>

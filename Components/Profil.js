@@ -5,14 +5,22 @@ import SleyBackground from './CustomComponent/SleyBackground'
 import CommonText from './CustomComponent/CommonText'
 
 
+import objectifs from '../Helpers/objectifs'
+import bodyPercent from '../Helpers/body-percent'
 class Profil extends React.Component {
   constructor(props) {
     super(props);
-    this.userName= "Le Rid"
-    this.objectif=""
-    this.poids="90 KG"
-    this.txGraisse="15-18%"
-    this.txGraisseCi="22-25%"
+  }
+
+
+  getObjById(idObj){
+    const obj = objectifs.find( objectif => objectif.id === idObj)
+    return obj.name;
+  }
+
+  getTxById(idTaux){
+    const tx = bodyPercent.find( taux => taux.id === idTaux)
+    return tx.title;
   }
 
   render()
@@ -32,12 +40,12 @@ class Profil extends React.Component {
                 </TouchableOpacity>
                 <Text style={{color:"rgba(255, 255, 0, 1)",
                         flex: 1, fontSize:20, fontWeight:'bold'}}>
-                    {this.userName}
+                    {this.props.pseudo}
                 </Text>
           </View>
         <View style={{flex:5,alignItems:'center'}}>
           <ScrollView style={styles.container}>
-            <View>
+            <View style={styles.categ_container}>
               <View style={{flexDirection:"row", padding:10}}>
                 <CommonText style={{flex:1}}>
                     Mon plan fitness
@@ -45,14 +53,14 @@ class Profil extends React.Component {
                 <Button title="Modifier" />
               </View>
               <Text style={styles.text}>
-                {"\u2666 Mon objectif: "}{this.objectif + "\n"}
-                {"\u2666 Mon poids initial: "}{this.poids + "\n"}
-                {"\u2666 Mon taux de graisse initial: "}{this.txGraisse + "\n"}
-                {"\u2666 Mon taux de graisse cible: "}{this.txGraisseCi + "\n"}
+                {"\u2666 Mon objectif: "}{this.getObjById(this.props.idObj) + "\n"}
+                {"\u2666 Mon poids initial: "}{this.props.poids + " KG \n"}
+                {"\u2666 Mon taux de graisse initial: "}{this.getTxById(this.props.idTxAct) + "\n"}
+                {"\u2666 Mon taux de graisse cible: "}{this.getTxById(this.props.idTxCible) + "\n"}
               </Text>
             </View>
 
-            <View>
+            <View style={styles.categ_container}>
               <View style={{flexDirection:"row", padding:10}}>
                 <CommonText style={{flex:1}}>
                     Mes données sportives
@@ -81,6 +89,16 @@ const styles = StyleSheet.create({
     alignItems:'center',
 
   },
+categ_container:  {
+  flex: 1,
+  backgroundColor:"white",
+  borderColor:"rgba(255, 255, 0, 1)",
+  borderWidth:3,
+  borderRadius:35,
+  marginBottom:25,
+  marginTop:25,
+  width:"95%",},
+
   container:{
     flex:1,
     /*borderColor:"rgba(255, 255, 0, 1)",
@@ -106,7 +124,6 @@ const styles = StyleSheet.create({
     borderWidth: 4,
   },
   text:{
-    backgroundColor:'rgba(255, 255, 0, 0.5)',
     fontSize:16,
     fontWeight:'bold',
     lineHeight: 40,
@@ -115,4 +132,9 @@ const styles = StyleSheet.create({
   }
 })
 
-export default Profil
+const mapStateToProps=(state)=>
+{
+  return state
+
+}
+export default connect(mapStateToProps) (Profil)
