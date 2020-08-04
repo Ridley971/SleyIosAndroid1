@@ -98,5 +98,3 @@ const styles = StyleSheet.create({
     backgroundColor: '#000'
   }
 });
-
-module.exports = FBLoginButton;
