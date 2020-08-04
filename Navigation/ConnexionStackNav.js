@@ -4,7 +4,7 @@ import { createStackNavigator } from '@react-navigation/stack'
 import {TouchableOpacity,Text} from 'react-native'
 
 import Connexion from "../Components/Auth/Connexion"
-import RsConnect from "../Components/Auth/RsConnection"
+import FbConnect from "../Components/Auth/FBLoginButton"
 import Profile from "../Components/Auth/Profile"
 import Accueil from "../Components/Accueil"
 import Step1 from '../Components/Steps/Step1'
@@ -22,7 +22,7 @@ const Stack = createStackNavigator()
 function ConnexionStackNav() {
   return (
       <Stack.Navigator
-        initialRouteName='Connexion'
+        initialRouteName='FbConnection'
         screenOptions={{
                   headerStyle: {
                     backgroundColor: 'rgba(255, 255, 0, 1)'
@@ -39,13 +39,14 @@ function ConnexionStackNav() {
           options={{ headerShown: false }}/>
 
 
-          <Stack.Screen
-            name='RsConnect'
-            component={RsConnect}/>
+        <Stack.Screen
+          name='FbConnection'
+          component={FbConnect}/>
 
-                      <Stack.Screen
-                        name='Profile'
-                        component={Profile}/>
+        <Stack.Screen
+          name='Profile'
+          component={Profile}/>
+
         <Stack.Screen
           name='Step1'
           component={Step1}/>
