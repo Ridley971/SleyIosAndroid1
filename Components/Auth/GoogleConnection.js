@@ -1,5 +1,6 @@
 import React from "react"
 import { StyleSheet, Text, View, Image, Button } from "react-native"
+ import * as Google from "expo-google-app-auth"
 
 export default class RsConnection extends React.Component {
   constructor(props) {
@@ -12,9 +13,9 @@ export default class RsConnection extends React.Component {
   }
   signIn = async () => {
     try {
-      const result = await Expo.Google.logInAsync({
-        androidClientId:"706610168610-70veeuek7gsuvmhfahunnk97lp307vt5.apps.googleusercontent.com",
-        iosClientId: "706610168610-p1og57ioccqmu0oi2h3518m19jggverp.apps.googleusercontent.com",
+      const result = await Google.logInAsync({
+        androidClientId:"706610168610-q565u3shbvjg2h5hc3g0nd6lr9j9nhh1.apps.googleusercontent.com",
+        iosClientId: "706610168610-ttgh3gn1uqbi88dvht32bcs08q20tmfg.apps.googleusercontent.com",
         scopes: ["profile", "email"]
       })
 

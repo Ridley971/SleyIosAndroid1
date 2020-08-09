@@ -5,6 +5,7 @@ import {TouchableOpacity,Text} from 'react-native'
 
 import Connexion from "../Components/Auth/Connexion"
 import FbConnect from "../Components/Auth/FBLoginButton"
+import GoogleConnect from "../Components/Auth/GoogleConnection"
 import Profile from "../Components/Auth/Profile"
 import Accueil from "../Components/Accueil"
 import Step1 from '../Components/Steps/Step1'
@@ -42,6 +43,10 @@ function ConnexionStackNav() {
         <Stack.Screen
           name='FbConnection'
           component={FbConnect}/>
+
+        <Stack.Screen
+          name='GoogleConnection'
+          component={GoogleConnect}/>
 
         <Stack.Screen
           name='Profile'
