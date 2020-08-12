@@ -19,6 +19,7 @@
     "expo-font": "~8.2.1",
     "expo-google-app-auth": "^8.1.2",
     "expo-google-sign-in": "~8.2.1",
+    "global": "^4.4.0",
     "moment": "^2.24.0",
     "react": "16.11.0",
     "react-dom": "16.11.0",
