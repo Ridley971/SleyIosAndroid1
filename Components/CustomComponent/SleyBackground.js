@@ -8,9 +8,9 @@ class SleyBackground extends React.Component
   {
     return(
           <ImageBackground source={require('../../assets/back.jpg')} style={[styles.image,{...this.props.style}]}>
-
+            <SafeAreaView style= {{flex:1}}>
             {this.props.children}
-          
+          </SafeAreaView>
           </ImageBackground>
     )
   }

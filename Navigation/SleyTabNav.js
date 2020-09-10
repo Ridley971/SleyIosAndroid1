@@ -4,8 +4,8 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 import ProfileStackNav from "./ProfileStackNav"
 import SleyDrawerNav from "./SleyDrawerNav"
+import AccueilStackNav from "./AccueilStackNav"
 
-import Accueil from "../Components/Accueil"
 import Boutique from "../Components/Boutique"
 import Connexion from "../Components/Auth/Connexion"
 
@@ -13,7 +13,7 @@ const Tab = createBottomTabNavigator();
 
 const  SleyTabNav =({navigation})=>(
         <Tab.Navigator
-           initialRouteName="Accueil"
+           initialRouteName="AccueilStackNav"
             tabBarOptions={{
               showLabel:false,
               style: {
@@ -53,8 +53,8 @@ const  SleyTabNav =({navigation})=>(
                   },
                 }}/>
 
-           <Tab.Screen name="Accueil"
-              component={Accueil}
+           <Tab.Screen name="AccueilStackNav"
+              component={AccueilStackNav}
               options={{
                     tabBarLabel: 'Accueil',
                     tabBarIcon: () => {

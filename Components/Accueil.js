@@ -19,6 +19,7 @@ class Accueil extends React.Component
         {
           toValue: 70,
           duration: 1000,
+          useNativeDriver: false
         }
       )).start() // N'oubliez pas de lancer votre animation avec la fonction start()
   }
@@ -28,7 +29,7 @@ class Accueil extends React.Component
     return(
      <View style={styles.main_container}>
         <Animated.View style={[styles.animation_view, { width: this.state.hearthSize , height: this.state.hearthSize}]}>
-          <TouchableOpacity style={{flex:1}}>
+          <TouchableOpacity style={{flex:1}} onPress={()=>this.props.navigation.navigate("Workout")}>
             <Image style={{flex:1, height:null, width:null}} source={require('../assets/cardiogram.png')}/>
           </TouchableOpacity>
         </Animated.View>
