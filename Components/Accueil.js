@@ -8,17 +8,30 @@ class Accueil extends React.Component
 {
   constructor(props) {
     super(props);
+    this.state = {
+      hearthSize: new Animated.Value(60)
+    }
   }
 
-
+  componentDidMount() {
+      Animated.loop(Animated.timing(
+        this.state.hearthSize,
+        {
+          toValue: 70,
+          duration: 1000,
+        }
+      )).start() // N'oubliez pas de lancer votre animation avec la fonction start()
+  }
   render()
   {
     console.log(this.props);
     return(
      <View style={styles.main_container}>
-          <TouchableOpacity style={{height:75, width:75, position: 'absolute', top:50,right:10}}>
-            <Image style={{height:60, width:60}} source={require('../assets/cardiogram.png')}/>
+        <Animated.View style={[styles.animation_view, { width: this.state.hearthSize , height: this.state.hearthSize}]}>
+          <TouchableOpacity style={{flex:1}}>
+            <Image style={{flex:1, height:null, width:null}} source={require('../assets/cardiogram.png')}/>
           </TouchableOpacity>
+        </Animated.View>
           <View style={styles.logo_container}>
           <Image style={{height:100, width:100}} source={require('../assets/icon.png')}/>
           </View>
@@ -69,6 +82,11 @@ class Accueil extends React.Component
 }
 
 const styles = StyleSheet.create({
+  animation_view:{
+     position: 'absolute',
+     top:50,
+     right:10
+  },
   //Containers
   main_container: {
     flex: 1,

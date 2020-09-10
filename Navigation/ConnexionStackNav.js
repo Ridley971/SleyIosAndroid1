@@ -23,7 +23,7 @@ const Stack = createStackNavigator()
 function ConnexionStackNav() {
   return (
       <Stack.Navigator
-        initialRouteName='FbConnection'
+        initialRouteName='Connexion'
         screenOptions={{
                   headerStyle: {
                     backgroundColor: 'rgba(255, 255, 0, 1)'
