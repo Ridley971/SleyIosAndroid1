@@ -26,9 +26,9 @@ class Boutique extends React.Component
                   color:'#C0C0C0C0'}}>BOUTIK</Text>
           </View>
 
-          <TouchableOpacity style={styles.categ_container}>
+          {false ? (<TouchableOpacity style={[styles.categ_container,{}]}>
 
-            <Text style={styles.categ_title}>Vêtements & Accessoires</Text>
+            <Text style={[{color:"red"}, styles.categ_title]}>Vêtements & Accessoires</Text>
                 <View style={styles.image_container}>
 
                 <Image style={styles.image_categ}  source={require('../assets/Boutik/v1.jpeg')}/>
@@ -36,6 +36,19 @@ class Boutique extends React.Component
                 <Image style={styles.image_categ} source={require('../assets/Boutik/v2.jpeg')}/>
 
                 <Image style={styles.image_categ} source={require('../assets/Boutik/v3.jpeg')}/>
+              </View>
+          </TouchableOpacity>) : null }
+
+          <TouchableOpacity style={styles.categ_container}>
+
+          <Text style={styles.categ_title}>Natiyé</Text>
+              <View style={styles.image_container}>
+
+                <Image style={styles.image_categ} source={require('../assets/Boutik/natiyeB.jpeg')}/>
+
+                <Image style={styles.image_categ} source={require('../assets/Boutik/natiyeR.jpeg')}/>
+
+                <Image style={styles.image_categ} source={require('../assets/Boutik/natiyeGourde.jpeg')}/>
               </View>
           </TouchableOpacity>
 
@@ -104,8 +117,7 @@ const styles = StyleSheet.create({
   categ_title:{
     textAlign:'center',
       fontSize: 25,
-      fontWeight:"bold",
-    color:'#C0C0C0C0'},
+      fontWeight:"bold"},
 
   //TouchableOpacity
   touchOption:{

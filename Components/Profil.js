@@ -47,7 +47,7 @@ class Profil extends React.Component {
           <ScrollView style={styles.container}>
             <View style={styles.categ_container}>
               <View style={{flexDirection:"row", padding:10}}>
-                <CommonText style={{flex:1}}>
+                <CommonText style={{flex:1, color:"yellow"}}>
                     Mon plan fitness
                 </CommonText>
                 <Button title="Modifier" />
@@ -62,7 +62,7 @@ class Profil extends React.Component {
 
             <View style={styles.categ_container}>
               <View style={{flexDirection:"row", padding:10}}>
-                <CommonText style={{flex:1}}>
+                <CommonText style={{flex:1, color:"yellow"}}>
                     Mes données sportives
                 </CommonText>
               </View>
@@ -91,7 +91,7 @@ const styles = StyleSheet.create({
   },
 categ_container:  {
   flex: 1,
-  backgroundColor:"white",
+  backgroundColor:"rgba(255, 255, 255, 0.8)",
   borderColor:"rgba(255, 255, 0, 1)",
   borderWidth:3,
   borderRadius:35,

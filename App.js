@@ -15,7 +15,7 @@ export default class App extends React.Component
         <Provider store={Store}>
           <NavigationContainer>
             {
-              false ? (
+              true ? (
                <SleyDrawerNav/>
              ) : (
 

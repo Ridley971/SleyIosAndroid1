@@ -25,7 +25,8 @@ class Accueil extends React.Component
   }
   render()
   {
-    console.log(this.props);
+    
+    //console.log(this.props);
     return(
      <View style={styles.main_container}>
         <Animated.View style={[styles.animation_view, { width: this.state.hearthSize , height: this.state.hearthSize}]}>
