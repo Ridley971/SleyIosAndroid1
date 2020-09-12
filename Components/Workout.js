@@ -24,7 +24,7 @@ class Workout extends React.Component {
                     textAlign:"center",
                      color:"#C0C0C0C0",
                     fontSize:30, fontWeight:"bold",}}>
-                      Nom Exercice
+                      Tirage Vertical devant
                   </Text>
               </View>
               <View style={{flex:2, }}>

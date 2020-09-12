@@ -45,10 +45,10 @@ class Profil extends React.Component {
           </View>
         <View style={{flex:5,alignItems:'center'}}>
           <ScrollView style={styles.container}>
-            <View style={styles.categ_container}>
+            <View >
               <View style={{flexDirection:"row", padding:10}}>
                 <CommonText style={{flex:1, color:"yellow"}}>
-                    Mon plan fitness
+                    Objectif
                 </CommonText>
                 <Button title="Modifier" />
               </View>
@@ -60,18 +60,20 @@ class Profil extends React.Component {
               </Text>
             </View>
 
-            <View style={styles.categ_container}>
+            <View >
               <View style={{flexDirection:"row", padding:10}}>
                 <CommonText style={{flex:1, color:"yellow"}}>
-                    Mes données sportives
+                    Données sportives
                 </CommonText>
               </View>
               <Text style={styles.text}>
-                {"\u2666 Charge MAX altères: 30 KG  \n"}
-                {"\u2666 Charge MAX développer coucher: 100 KG\n"}
-                {"\u2666 Charge MAX Burpees: 25 KG  \n"}
-                {"\u2666 ... \n"}
+                {"\u2666 1 RM Curls : 30 KG  \n"}
+                {"\u2666 1 RM développer coucher: 100 KG\n"}
+                {"\u2666 1 RM Burpees: 25 KG  \n"}
+                {"\u2666 1 RM Dips: 25 KG  \n"}
+                {"\u2666 1 RM développer épaules: 30 KG\n"}
               </Text>
+              <Button title="Voir plus ..." />
             </View>
           </ScrollView>
         </View>
@@ -126,8 +128,9 @@ categ_container:  {
   text:{
     fontSize:16,
     fontWeight:'bold',
+
     lineHeight: 40,
-    color:"black",
+    color:"white",
 
   }
 })
