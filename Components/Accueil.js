@@ -25,7 +25,7 @@ class Accueil extends React.Component
   }
   render()
   {
-    
+
     //console.log(this.props);
     return(
      <View style={styles.main_container}>
@@ -35,7 +35,7 @@ class Accueil extends React.Component
           </TouchableOpacity>
         </Animated.View>
           <View style={styles.logo_container}>
-          <Image style={{height:100, width:100}} source={require('../assets/icon.png')}/>
+          <Image style={{height:100, width:100}} source={require('../assets/icon2.png')}/>
           </View>
 
           <View style={styles.title_container}>
