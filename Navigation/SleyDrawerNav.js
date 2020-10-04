@@ -7,14 +7,18 @@ import MesVotes from '../Components/Training/MesVotes'
 import AntrenmanStackNav from './AntrenmanStackNav'
 import SleyTabNav from './SleyTabNav'
 import Planning from "../Components/Planning"
+import {DrawerContent} from "../Components/CustomComponent/DrawerContent"
+
+
 const Drawer = createDrawerNavigator();
 
 export default function SleyDrawerNav() {
   return (
       <Drawer.Navigator
+            drawerContent={props => <DrawerContent{...props}/>}
             drawerStyle={{
               backgroundColor: 'rgba(255, 255, 0, 0.9)',
-              width: 200,
+              width: 230,
             }}>
         <Drawer.Screen name="Accueil" component={SleyTabNav} />
         <Drawer.Screen name="Réserver" component={AntrenmanStackNav} />
