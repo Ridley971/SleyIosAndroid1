@@ -3,13 +3,14 @@ import { createStackNavigator } from '@react-navigation/stack'
 import {StyleSheet, View, Image,TouchableOpacity} from 'react-native'
 
 import Antrenman from "../Components/Training/Antrenman"
-import Accueil from "./SleyTabNav"
+import Accueil from "./MainTabNav"
 import Azone from "../Components/Training/Azone"
 import Reserv from "../Components/Training/Reserv"
 import VoteAgenda from "../Components/Training/VoteAgenda"
 import Planning from "../Components/Planning"
 import CheckObj from "../Components/Training/CheckObj"
 import SelectMembre from "../Components/Training/SelectMembre"
+
 const Stack = createStackNavigator()
 
 const AntrenmanStackNav=({navigation}) =>(

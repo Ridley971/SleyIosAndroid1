@@ -45,7 +45,7 @@ export function DrawerContent(props) {
                 size={size}/>
               )}
               label="Accueil "
-              omPress= {() => {}}/>
+              omPress= {() => {Alert.alert('OK')}}/>
 
               <DrawerItem
                   icon={({color, size}) => (
@@ -55,7 +55,7 @@ export function DrawerContent(props) {
                     size={size}/>
                   )}
                   label="Réserver "
-                  omPress= {() => {}}/>
+                  omPress= {() => {props.navigation.navigate('Réserver')}}/>
 
               <DrawerItem
                   icon={({color, size}) => (

@@ -5,7 +5,7 @@ import { createDrawerNavigator } from '@react-navigation/drawer';
 import Tutos from '../Components/Training/Tutos'
 import MesVotes from '../Components/Training/MesVotes'
 import AntrenmanStackNav from './AntrenmanStackNav'
-import SleyTabNav from './SleyTabNav'
+import MainTabNav from './MaterialBottomTab'
 import Planning from "../Components/Planning"
 import {DrawerContent} from "../Components/CustomComponent/DrawerContent"
 
@@ -20,7 +20,7 @@ export default function SleyDrawerNav() {
               backgroundColor: 'rgba(255, 255, 0, 0.9)',
               width: 230,
             }}>
-        <Drawer.Screen name="Accueil" component={SleyTabNav} />
+        <Drawer.Screen name="Accueil" component={MainTabNav} />
         <Drawer.Screen name="Réserver" component={AntrenmanStackNav} />
         <Drawer.Screen name="Mes Réservations" component={Planning } />
         <Drawer.Screen name="Mes Votes" component={MesVotes} />

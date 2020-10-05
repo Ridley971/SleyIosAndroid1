@@ -11,7 +11,7 @@ import Connexion from "../Components/Auth/Connexion"
 
 const Tab = createBottomTabNavigator();
 
-const  SleyTabNav =({navigation})=>(
+const  MainTabNav =({navigation})=>(
         <Tab.Navigator
            initialRouteName="AccueilStackNav"
             tabBarOptions={{
@@ -23,7 +23,7 @@ const  SleyTabNav =({navigation})=>(
 
             }}
           >
-
+          {/*Afficher le Drawer*/}
           <Tab.Screen name="SleyDrawerNav"
             component={SleyDrawerNav}
              options={{
@@ -84,4 +84,4 @@ const styles = StyleSheet.create({
     height:20, width:20
   },
 })
-export default SleyTabNav
+export default MainTabNav
