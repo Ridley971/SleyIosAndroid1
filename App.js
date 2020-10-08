@@ -19,28 +19,31 @@ import {DrawerContent} from "./Components/CustomComponent/DrawerContent"
 import MainTabScreen from "./Navigation/MaterialBottomTab"
 const Drawer = createDrawerNavigator();
 
-export default class App extends React.Component
+const App = () =>
 {
 
-    render(){
         return (
         <Provider store={Store}>
           <NavigationContainer>
 
-              {/*<Drawer.Navigator>
-                <Drawer.Screen name="Accueil" component={Accueil} />
-                <Drawer.Screen name="Reserver" component={ReservStack} />
-                <Drawer.Screen name="Mes Réservations" component={Planning } />
-                <Drawer.Screen name="Mes Votes" component={MesVotes} />
-                <Drawer.Screen name="Tutos" component={Tutos} />
-              </Drawer.Navigator>*/}
 
 
             {
-              false ? (
+              true ? (
+                <Drawer.Navigator
+                    drawerContent={props => <DrawerContent{...props}/>}
+                    drawerStyle={{
+                      backgroundColor: 'rgba(255, 255, 0, 0.9)',
+                      width: 240,
+                    }}>
+                  <Drawer.Screen name="Accueil" component={MainTabScreen} />
+                  <Drawer.Screen name="Reserv" component={ReservStack} />
+                  <Drawer.Screen name="Tutos" component={Tutos} />
+                  <Drawer.Screen name="MyReservations" component={Planning } />
+                  <Drawer.Screen name="MyVotes" component={MesVotes} />
+                </Drawer.Navigator>
 
 
-               <SleyDrawerNav/>
              ) : (
 
                <ConnexionStackNav/>
@@ -50,6 +53,7 @@ export default class App extends React.Component
           </NavigationContainer>
         </Provider>
       )
-    }
+
 
 }
+export default App;

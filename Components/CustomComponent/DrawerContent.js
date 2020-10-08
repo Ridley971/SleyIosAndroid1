@@ -45,7 +45,7 @@ export function DrawerContent(props) {
                 size={size}/>
               )}
               label="Accueil "
-              omPress= {() => {Alert.alert('OK')}}/>
+              onPress= {() => {props.navigation.navigate('Accueil')}}/>
 
               <DrawerItem
                   icon={({color, size}) => (
@@ -55,7 +55,7 @@ export function DrawerContent(props) {
                     size={size}/>
                   )}
                   label="Réserver "
-                  omPress= {() => {props.navigation.navigate('Réserver')}}/>
+                  onPress= {() => {props.navigation.navigate('Reserv')}}/>
 
               <DrawerItem
                   icon={({color, size}) => (
@@ -65,7 +65,7 @@ export function DrawerContent(props) {
                     size={size}/>
                   )}
                   label="Mes réservations "
-                  omPress= {() => {}}/>
+                  onPress= {() => {props.navigation.navigate('MyReservations')}}/>
 
               <DrawerItem
                       icon={({color, size}) => (
@@ -75,7 +75,7 @@ export function DrawerContent(props) {
                         size={size}/>
                       )}
                       label="Mes votes "
-                      omPress= {() => {}}/>
+                      onPress= {() => {props.navigation.navigate('MyVotes')}}/>
 
               <DrawerItem
                       icon={({color, size}) => (
@@ -85,7 +85,7 @@ export function DrawerContent(props) {
                         size={size}/>
                       )}
                       label="Tutos "
-                      omPress= {() => {}}/>
+                      onPress= {() => {props.navigation.navigate('Tutos')}}/>
 
 
           </Drawer.Section>
