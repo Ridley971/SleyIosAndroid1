@@ -23,7 +23,10 @@ export function DrawerContent(props) {
     <View style= {{flex:1}}>
       <DrawerContentScrollView {...props}>
         <View style= {styles.drawerContent}>
-          <View style= {styles.userInfoSection}>
+           <TouchableRipple
+                onPress={() => props.navigation.navigate("Profil")}
+                rippleColor="rgba(0, 0, 0, .32)"
+                style= {styles.userInfoSection}>
             <View style={{alignItems:'center'}}>
               <Avatar.Image
                 source={require( '../../assets/moi.jpg')}
@@ -34,7 +37,7 @@ export function DrawerContent(props) {
                 <Caption style={styles.caption}> Caption</Caption>
               </View>
             </View>
-          </View>
+          </TouchableRipple>
 
           <Drawer.Section style= {styles.drawerSection}>
               <DrawerItem

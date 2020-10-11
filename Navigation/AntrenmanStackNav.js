@@ -10,6 +10,7 @@ import VoteAgenda from "../Components/Training/VoteAgenda"
 import Planning from "../Components/Planning"
 import CheckObj from "../Components/Training/CheckObj"
 import SelectMembre from "../Components/Training/SelectMembre"
+import SelectBienEtre from "../Components/Training/SelectBienEtre"
 
 const Stack = createStackNavigator()
 
@@ -76,6 +77,13 @@ const AntrenmanStackNav=({navigation}) =>(
             <Stack.Screen
               name='SelectMembre'
               component={SelectMembre}
+              options={{
+                title: 'Sélection',
+              }}/>
+
+            <Stack.Screen
+              name='SelectBienEtre'
+              component={SelectBienEtre}
               options={{
                 title: 'Sélection',
               }}/>

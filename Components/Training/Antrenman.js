@@ -73,7 +73,7 @@ class Antrenman extends React.Component {
 
           <TouchableOpacity
             style={styles.touchOp}
-            onPress={() => {alert('Bien-etre')}}>
+            onPress={() => this.props.navigation.navigate("SelectBienEtre")}>
             <Text style={styles.text_Obj}>Bien-Etre</Text>
             <Text style={styles.text_Desc}>
               Réservez vos séances d'ostéopathe, kiné, et autres avec nos partenaires
