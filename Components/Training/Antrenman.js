@@ -3,6 +3,7 @@ import {StyleSheet, View,Image, Text,TouchableOpacity, ScrollView} from 'react-n
 import { connect } from 'react-redux'
 
 import SleyBackground from '../CustomComponent/SleyBackground'
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
 
 class Antrenman extends React.Component {
 
@@ -15,10 +16,9 @@ class Antrenman extends React.Component {
     this.props.navigation.setOptions({
           headerLeft: () => (
             <TouchableOpacity
+              style={{left:15}}
               onPress={()=>  this.props.navigation.toggleDrawer()}>
-              <Image
-                source={require('../../assets/menu.png')}
-                style={{width: 40, height: 40, left: 15} }/>
+                  <Icon name="menu" size={35} color="black" />
             </TouchableOpacity>
           ),
           headerRight: () => (

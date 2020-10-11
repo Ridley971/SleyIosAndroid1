@@ -2,14 +2,17 @@ import React from 'react'
 import {StyleSheet, View, Text, Image, TouchableOpacity} from 'react-native'
 import Icon from 'react-native-vector-icons/Ionicons';
 
+import ToggleDrawer from './ToggleDrawer'
+
 class SecondBackground extends React.Component {
 
   render()
   {
-    const { title } = this.props
+    //const { title} = this.props
     return(
       <View style={styles.main_container}>
 
+           <ToggleDrawer {...this.props}/>
            <View style={styles.logo_container}>
             <Image style={{height:70, width:70}} source={require('../../assets/icon2.png')}/>
            </View>
@@ -20,7 +23,7 @@ class SecondBackground extends React.Component {
                    marginBottom:20,
                    fontWeight:"bold",
                    color:'#C0C0C0C0',
-                 }}>{title}</Text>
+                 }}>{ this.props.title}</Text>
             </View>
 
             {this.props.children}

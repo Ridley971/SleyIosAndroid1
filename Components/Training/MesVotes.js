@@ -8,7 +8,7 @@ class MesVotes extends React.Component {
   {
     return(
 
-        <SecondBackground title="Mes Votes">
+        <SecondBackground title="Mes Votes" {...this.props}>
         </SecondBackground>
     )
   }

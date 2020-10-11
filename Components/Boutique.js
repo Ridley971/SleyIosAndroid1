@@ -14,7 +14,7 @@ class Boutique extends React.Component
   render()
   {
     return(
-     <SecondBackground title="Boutik">
+     <SecondBackground title="Boutik" {...this.props}>
 
           {false ? (<TouchableOpacity style={[styles.categ_container,{}]}>
 

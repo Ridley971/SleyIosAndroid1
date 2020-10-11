@@ -9,7 +9,7 @@ class Planning extends React.Component {
   {
     return(
 
-        <SecondBackground title="Mes Réservations">
+        <SecondBackground title="Mes Réservations" {...this.props}>
         </SecondBackground>
     )
   }

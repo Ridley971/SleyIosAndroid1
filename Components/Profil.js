@@ -3,7 +3,7 @@ import {StyleSheet, View, Image, TouchableOpacity, Text, ScrollView,Button} from
 import { connect } from 'react-redux'
 import SleyBackground from './CustomComponent/SleyBackground'
 import CommonText from './CustomComponent/CommonText'
-
+import ToggleDrawer from './CustomComponent/ToggleDrawer'
 
 import objectifs from '../Helpers/objectifs'
 import bodyPercent from '../Helpers/body-percent'
@@ -27,6 +27,8 @@ class Profil extends React.Component {
   {
     return(
         <SleyBackground style={{flex:1}}>
+
+          <ToggleDrawer {...this.props}/>
 
           <TouchableOpacity style={{zIndex: 1, position:'absolute',top:45, right:15}}
             onPress={()=> this.props.navigation.navigate("Settings")}>

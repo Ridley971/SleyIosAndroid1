@@ -4,6 +4,8 @@ import CommonText from "./CustomComponent/CommonText"
 import {connect} from "react-redux"
 
 
+import ToggleDrawer from './CustomComponent/ToggleDrawer'
+
 class Accueil extends React.Component
 {
   constructor(props) {
@@ -28,7 +30,9 @@ class Accueil extends React.Component
 
     //console.log(this.props);
     return(
+
      <View style={styles.main_container}>
+          <ToggleDrawer {...this.props}/>
         <Animated.View style={[styles.animation_view, { width: this.state.hearthSize , height: this.state.hearthSize}]}>
           <TouchableOpacity style={{flex:1}} onPress={()=>this.props.navigation.navigate("Workout")}>
             <Image style={{flex:1, height:null, width:null}} source={require('../assets/cardiogram.png')}/>

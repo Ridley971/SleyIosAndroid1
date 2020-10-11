@@ -23,24 +23,6 @@ const  MainTabNav =({navigation})=>(
 
             }}
           >
-          {/*Afficher le Drawer*/}
-          <Tab.Screen name="SleyDrawerNav"
-            component={SleyDrawerNav}
-             options={{
-                   tabBarLabel: 'GYM',
-                   tabBarIcon: () => {
-                     return <Image
-                       source={require('../assets/menu.png')}
-                       style={styles.tab_Icon}/>
-                   },
-                   tabBarButton: props =>(
-                     <TouchableOpacity
-                        {...props}
-                        onPress={() => navigation.toggleDrawer()}
-                      />
-                   )
-                 }}
-            />
 
          <Tab.Screen name="Boutique"
             component={Boutique}
