@@ -26,7 +26,7 @@ export function DrawerContent(props) {
           <View style= {styles.userInfoSection}>
             <View style={{alignItems:'center'}}>
               <Avatar.Image
-                source={require( '../../assets/defaultAvatar.png')}
+                source={require( '../../assets/moi.jpg')}
                 size= {100}
                 />
               <View>

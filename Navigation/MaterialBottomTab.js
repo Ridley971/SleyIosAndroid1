@@ -13,7 +13,20 @@ import Icon from "react-native-vector-icons/Ionicons"
 
 const Tab = createMaterialBottomTabNavigator();
 
+ function getTabBarVisibility (route) {
+  const routeName = route.state
+    ? route.state.routes[route.state.index].name
+    : '';
+    console.log(routeName);
+  if (routeName === 'Accueil') {
+    return false;
+  }
+
+  return true;
+}
+
 const MainTabScreen = () => (
+
     <Tab.Navigator
       initialRouteName="Accueil"
       inactiveColor="#000"
@@ -23,13 +36,14 @@ const MainTabScreen = () => (
       <Tab.Screen
         name="Accueil"
         component={Accueil}
-        options={{
+        options={({ route }) => ({
           tabBarLabel: 'Accueil',
           tabBarColor:'#F9E111',
           tabBarIcon: ({ color }) => (
             <Icon name="ios-home" color={color} size={26} />
           ),
-        }}
+          tabBarVisible: true
+        })}
       />
 
       <Tab.Screen

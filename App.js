@@ -36,7 +36,7 @@ const App = () =>
                       backgroundColor: 'rgba(255, 255, 0, 0.9)',
                       width: 240,
                     }}>
-                  <Drawer.Screen name="Accueil" component={MainTabScreen} />
+                  <Drawer.Screen name="Accueil" component={MainTabNav} />
                   <Drawer.Screen name="Reserv" component={ReservStack} />
                   <Drawer.Screen name="Tutos" component={Tutos} />
                   <Drawer.Screen name="MyReservations" component={Planning } />

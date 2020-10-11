@@ -36,7 +36,7 @@ class Profil extends React.Component {
           <View style={styles.header_Container}>
                 <TouchableOpacity
                   style={styles.touchableOpacity}>
-                    <Image style={styles.avatar} source={require('../assets/defaultAvatar.png')} />
+                    <Image style={styles.avatar} source={require('../assets/moi.jpg')} />
                 </TouchableOpacity>
                 <Text style={{color:"rgba(255, 255, 0, 1)",
                         flex: 1, fontSize:20, fontWeight:'bold'}}>

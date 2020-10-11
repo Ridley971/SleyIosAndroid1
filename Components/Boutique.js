@@ -3,6 +3,7 @@ import  {StyleSheet,View,Button,Image,Text,Alert, TouchableOpacity,ScrollView} f
 import CommonText from "./CustomComponent/CommonText"
 import {connect} from "react-redux"
 
+import SecondBackground from './CustomComponent/SecondBackground'
 
 class Boutique extends React.Component
 {
@@ -13,18 +14,7 @@ class Boutique extends React.Component
   render()
   {
     return(
-     <View style={styles.main_container}>
-          <View style={styles.logo_container}>
-          <Image style={{height:70, width:70}} source={require('../assets/icon.png')}/>
-          </View>
-
-          <View>
-              <Text style={{
-                  fontSize: 35,
-                  marginBottom:20,
-                  fontWeight:"bold",
-                  color:'#C0C0C0C0'}}>BOUTIK</Text>
-          </View>
+     <SecondBackground title="Boutik">
 
           {false ? (<TouchableOpacity style={[styles.categ_container,{}]}>
 
@@ -64,28 +54,12 @@ class Boutique extends React.Component
               <Image style={styles.image_categ} source={require('../assets/Boutik/a3.jpeg')}/>
               </View>
           </TouchableOpacity>
-      </View>
+      </SecondBackground>
     )
   }
 }
 
 const styles = StyleSheet.create({
-  //Containers
-  main_container: {
-    flex: 1,
-    backgroundColor:'black',
-    alignItems:"center"
-  },
-  logo_container: {
-    flex: 0,
-    alignItems:'center',
-    justifyContent:'center',
-    marginTop:"25%"
-  },
-  title_container: {
-    flex: 0,
-    alignItems:'center',
-  },
   categ_container: {
     flex: 1,
     backgroundColor:"white",
