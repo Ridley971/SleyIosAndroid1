@@ -27,9 +27,9 @@ class Accueil extends React.Component
   }
 
 //Fonction de calcul de la charge MAX
-  calcul1RM(poids, reps){
+  calculChargeMAX(poids, reps){
     var chargeMAX=0;
-    
+
     if (reps<10) {
       chargeMAX = poids /(1.0278-(0.0278*reps))
     } else {
@@ -41,7 +41,7 @@ class Accueil extends React.Component
   render()
   {
 
-    console.log(this.calcul1RM(65,9));
+    console.log(this.calculChargeMAX(65,9));
     return(
 
      <View style={styles.main_container}>
