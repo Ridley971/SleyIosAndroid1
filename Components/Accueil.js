@@ -25,10 +25,23 @@ class Accueil extends React.Component
         }
       )).start() // N'oubliez pas de lancer votre animation avec la fonction start()
   }
+
+//Fonction de calcul de la charge MAX
+  calcul1RM(poids, reps){
+    var chargeMAX=0;
+    
+    if (reps<10) {
+      chargeMAX = poids /(1.0278-(0.0278*reps))
+    } else {
+      chargeMAX = poids/(Math.exp(-0.055*reps)*0.419+0.522)
+    }
+    return Math.round(chargeMAX)
+  }
+
   render()
   {
 
-    //console.log(this.props);
+    console.log(this.calcul1RM(65,9));
     return(
 
      <View style={styles.main_container}>
