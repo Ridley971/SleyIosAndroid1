@@ -104,13 +104,42 @@ const Connexion = ({navigation}) =>{
                   onChangeText={(val) => handlePasswordChange(val)}
                 />
                 <TouchableOpacity onPress= {updateSecureTextEntry}>
+
+                {data.secureTextEntry ?
                     <Feather
                       name="eye-off"
                       color="black"
                       size={30}
                     />
+                    :
+                    <Feather
+                      name="eye"
+                      color="black"
+                      size={30}
+                    />
+                  }
+
                 </TouchableOpacity>
           </View>
+
+          <View style= {styles.button}>
+              <LinearGradient
+                colors={['black', 'white']}
+                style={styles.signIn}>
+                <Text style={[styles.textSign,{color:"white"}]}>
+                  Se connecter
+                </Text>
+              </LinearGradient>
+          </View>
+          <TouchableOpacity
+          style={[styles.signIn,{
+            borderWidth:2,
+            marginTop:20
+          }]}
+          onPress={()=> navigation.navigate('Step1')}
+          >
+            <Text style={styles.textSign}>S'inscrire</Text>
+          </TouchableOpacity>
         </View>
     </View>
     );

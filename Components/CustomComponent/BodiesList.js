@@ -40,6 +40,7 @@ class BodiesList extends React.Component {
           style={{flex:1}}
           data={this.props.bodies}
           keyExtractor={(item) => item.id.toString()}
+          horizontal= {true}
           renderItem=
           {
             ({item}) =>

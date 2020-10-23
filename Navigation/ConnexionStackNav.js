@@ -17,6 +17,7 @@ import Step5 from '../Components/Steps/Step5'
 import Step6 from '../Components/Steps/Step6'
 import Step7 from '../Components/Steps/Step7'
 import Step8 from '../Components/Steps/Step8'
+import Step9 from '../Components/Steps/Step9'
 import SleyDrawerNav from './SleyDrawerNav'
 
 const Stack = createStackNavigator()
@@ -89,6 +90,10 @@ function ConnexionStackNav() {
         <Stack.Screen
           name='Step8'
           component={Step8}/>
+
+          <Stack.Screen
+            name='Step9'
+            component={Step9}/>
 
         <Stack.Screen
             name='SleyDrawerNav'

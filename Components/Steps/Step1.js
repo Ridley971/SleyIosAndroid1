@@ -56,13 +56,6 @@ class Step1 extends React.Component {
                       <Text style={styles.text_Desc}>Gagner de la masse musculaire & force</Text>
                     </TouchableOpacity>
 
-
-                    <TouchableOpacity
-                      style={styles.touchOp}
-                      onPress={() => {this._NextStep(4)}}>
-                      <Text style={styles.text_Obj}>Sculpter les muscles</Text>
-                      <Text style={styles.text_Desc}>Tonifier des zones spécifiques</Text>
-                    </TouchableOpacity>
               </View>
             </ScrollView>
             </View>
