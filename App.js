@@ -29,7 +29,7 @@ const App = () =>
 
 
             {
-              true ? (
+              false ? (
                 <Drawer.Navigator
                     drawerContent={props => <DrawerContent{...props}/>}
                     drawerStyle={{

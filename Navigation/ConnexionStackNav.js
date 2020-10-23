@@ -3,6 +3,7 @@ import { NavigationContainer } from '@react-navigation/native'
 import { createStackNavigator } from '@react-navigation/stack'
 import {TouchableOpacity,Text} from 'react-native'
 
+import SplashScreen from "../Components/Auth/SplashScreen"
 import Connexion from "../Components/Auth/Connexion"
 import FbConnect from "../Components/Auth/FBLoginButton"
 import GoogleConnect from "../Components/Auth/GoogleConnection"
@@ -23,7 +24,7 @@ const Stack = createStackNavigator()
 function ConnexionStackNav() {
   return (
       <Stack.Navigator
-        initialRouteName='Connexion'
+        initialRouteName='SplashScreen'
         screenOptions={{
                   headerStyle: {
                     backgroundColor: 'rgba(255, 255, 0, 1)'
@@ -33,6 +34,11 @@ function ConnexionStackNav() {
                   },
                   headerTintColor: 'black',
                 }}>
+
+        <Stack.Screen
+          name='SplashScreen'
+          component={SplashScreen}
+          options={{ headerShown: false }}/>
 
         <Stack.Screen
           name='Connexion'
