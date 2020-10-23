@@ -9,31 +9,43 @@ import {
     Image
 } from 'react-native';
 import * as Animatable from 'react-native-animatable';
-import LinearGradient from 'react-native-linear-gradient';
+import { LinearGradient } from 'expo-linear-gradient';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import { useTheme } from '@react-navigation/native';
 
-const SplashScreen = () => {
+const SplashScreen = ({navigation}) => {
 
     return (
       <View style={styles.container}>
         <View style={styles.header}>
-          <Image
-          source={require('../../assets/icon2.png')}
+          <Animatable.Image
+          animation='bounceIn'
+          duraton='2000'
+          source={require('../../assets/icon.png')}
           style={styles.logo}
           resizeMode='stretch'/>
         </View>
 
-        <View style={styles.footer}>
+        <Animatable.View
+          animation='fadeInUpBig'
+          style={styles.footer}>
           <Text style={styles.title}>Stay connected with everyone</Text>
             <Text style={styles.text}>Sign in with account</Text>
-            <TouchableOpacity onPress={alert('Click')}>
-
-                <Text style={styles.textSign}>Get Started</Text>
-              
-            </TouchableOpacity>
-
-        </View>
+              <View style={styles.button}>
+                  <TouchableOpacity onPress={()=> navigation.navigate('Connexion')}>
+                      <LinearGradient
+                          colors={['black','white']}
+                          style={styles.signIn}>
+                          <Text style={styles.textSign}>Get Started</Text>
+                          <MaterialIcons
+                              name="navigate-next"
+                              color="#fff"
+                              size={20}
+                          />
+                      </LinearGradient>
+                  </TouchableOpacity>
+              </View>
+          </Animatable.View>
       </View>
     );
 };
@@ -80,12 +92,10 @@ const styles = StyleSheet.create({
       marginTop: 30
   },
   signIn: {
-      width: 150,
-      height: 40,
-      justifyContent: 'center',
-      alignItems: 'center',
-      borderRadius: 50,
-      flexDirection: 'row'
+    width:150,
+    padding: 10,
+    alignItems: 'center',
+    borderRadius: 5
   },
   textSign: {
       color: 'white',
