@@ -6,7 +6,7 @@ import SleyBackground from "../CustomComponent/SleyBackground"
 import StepsTitle from "../CustomComponent/StepsTitle"
 import CommonText from "../CustomComponent/CommonText"
 import moment from "moment/min/moment-with-locales";
-import {connect} from "react-redux"
+//import {connect} from "react-redux"
 
 class Step3 extends React.Component
 {
@@ -21,15 +21,15 @@ class Step3 extends React.Component
   }
 
 
-  _NextStep(dateN) {
-    const action = { type: "UPDATE_DATEN", value: dateN }
-    this.props.dispatch(action)
+  _NextStep(dateN, sexe) {
+    /*const action = { type: "UPDATE_DATEN", value: dateN }
+    this.props.dispatch(action)*/
+
     this.props.navigation.navigate("Step4")
    }
 
   render()
   {
-
     this.props.navigation.setOptions({
         headerRight: () => (
           <TouchableOpacity
@@ -46,7 +46,8 @@ class Step3 extends React.Component
     const today = new Date()
     const year = moment(today).format("YYYY");
 
-    console.log(this.state)
+
+
         return(
             <SleyBackground>
 
@@ -89,7 +90,8 @@ class Step3 extends React.Component
 
 
 
-                <TouchableOpacity style={styles.touchButton} onPress={() => {this._NextStep(moment(date).format("L"))}}>
+                <TouchableOpacity style={styles.touchButton} onPress={() => {
+                    this._NextStep(moment(date).format("L"), this.props.route.sexe)}}>
                   <Text style={styles.text_Button}>Valider</Text>
                 </TouchableOpacity>
 
@@ -134,11 +136,11 @@ const styles={
 
 }
 
-
-const mapStateToProps = (state) => {
+export default Step3
+/*const mapStateToProps = (state) => {
   return {
    dateN: state.dateN
  }
 }
 
-export default connect(mapStateToProps)(Step3)
+export default connect(mapStateToProps)(Step3)*/

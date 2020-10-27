@@ -1,7 +1,7 @@
 import React from 'react'
 import  {Animated,StyleSheet,View,Button,Image,Text,Alert, TouchableOpacity,ScrollView} from 'react-native'
 import CommonText from "./CustomComponent/CommonText"
-import {connect} from "react-redux"
+
 
 
 import ToggleDrawer from './CustomComponent/ToggleDrawer'
@@ -11,7 +11,7 @@ class Accueil extends React.Component
   constructor(props) {
     super(props);
     this.state = {
-      hearthSize: new Animated.Value(60)
+      hearthSize: new Animated.Value(55)
     }
   }
 
@@ -19,8 +19,8 @@ class Accueil extends React.Component
       Animated.loop(Animated.timing(
         this.state.hearthSize,
         {
-          toValue: 70,
-          duration: 1000,
+          toValue: 65,
+          duration: 750,
           useNativeDriver: false
         }
       )).start() // N'oubliez pas de lancer votre animation avec la fonction start()
@@ -41,7 +41,6 @@ class Accueil extends React.Component
   render()
   {
 
-    console.log(this.calculChargeMAX(65,9));
     return(
 
      <View style={styles.main_container}>
@@ -66,7 +65,7 @@ class Accueil extends React.Component
                   color:'rgba(255, 255, 0, 1)',
                 marginBottom:30}}>Sport Training</Text>
 
-              <CommonText > Nou kontan vwèw <Text style={{color:"rgba(255, 255, 0, 1)"}}>{this.props.pseudo} </Text>!</CommonText>
+              <CommonText > Nou kontan vwèw <Text style={{color:"rgba(255, 255, 0, 1)"}}>Le Rid </Text>!</CommonText>
           </View>
           <ScrollView style={styles.options_container}>
               <TouchableOpacity style={styles.touchOption}>
@@ -152,9 +151,5 @@ const styles = StyleSheet.create({
   }
 })
 
-const mapStateToProps=(state)=>
-{
-  return state
 
-}
-export default connect(mapStateToProps)(Accueil)
+export default Accueil

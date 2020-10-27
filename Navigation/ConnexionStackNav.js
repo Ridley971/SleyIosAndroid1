@@ -96,8 +96,8 @@ function ConnexionStackNav() {
             component={Step9}/>
 
         <Stack.Screen
-            name='SleyDrawerNav'
-            component={SleyDrawerNav}
+            name='Accueil'
+            component={Accueil}
             options={{ headerShown: false }}/>
       </Stack.Navigator>
   )

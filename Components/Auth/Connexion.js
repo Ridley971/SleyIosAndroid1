@@ -15,7 +15,7 @@ import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import Feather from 'react-native-vector-icons/Feather';
 
 import { useTheme } from 'react-native-paper';
-
+import {AuthContext} from './context'
 
 const Connexion = ({navigation}) =>{
 
@@ -25,6 +25,9 @@ const Connexion = ({navigation}) =>{
     check_textInputChange: false,
     secureTextEntry: true
   })
+
+  //signIn dans App.js
+  const {signIn} = React.useContext(AuthContext)
 
   const textInputChange = (val) => {
     if (val.length > 0) {
@@ -56,7 +59,9 @@ const Connexion = ({navigation}) =>{
     })
   }
 
-
+  const loginHandle = (email, password) =>{
+    signIn(email,password)
+  }
   return(
     <View style={styles.container}>
         <View style={styles.header}>
@@ -122,7 +127,8 @@ const Connexion = ({navigation}) =>{
                 </TouchableOpacity>
           </View>
 
-          <View style= {styles.button}>
+          <TouchableOpacity style= {styles.button}
+          onPress= {()=> loginHandle(data.email, data.password)}>
               <LinearGradient
                 colors={['black', 'white']}
                 style={styles.signIn}>
@@ -130,7 +136,7 @@ const Connexion = ({navigation}) =>{
                   Se connecter
                 </Text>
               </LinearGradient>
-          </View>
+          </TouchableOpacity>
           <TouchableOpacity
           style={[styles.signIn,{
             borderWidth:2,

@@ -9,8 +9,8 @@ class Step1 extends React.Component {
 
   _NextStep(idOBJ)
    {
-     const action = { type: "UPDATE_OBJ", value: idOBJ }
-     this.props.dispatch(action)
+     /*const action = { type: "UPDATE_OBJ", value: idOBJ }
+     this.props.dispatch(action)*/
      this.props.navigation.navigate("Step2")
    }
 
@@ -110,10 +110,6 @@ touchOp:{
   }
 })
 
-const mapStateToProps = (state) => {
-  return {
-   idObj: state.idObj
- }
-}
 
-export default connect(mapStateToProps)(Step1)
+
+export default Step1

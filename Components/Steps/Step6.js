@@ -4,7 +4,7 @@ import bodies from "../../Helpers/body-percent"
 import SleyBackground from "../CustomComponent/SleyBackground"
 import BodiesList from "../CustomComponent/BodiesList"
 import StepsTitle from "../CustomComponent/StepsTitle"
-import {connect} from "react-redux"
+//import {connect} from "react-redux"
 
 class Step6 extends React.Component {
 
@@ -79,11 +79,11 @@ const styles={
       },
 }
 
-
-const mapStateToProps = (state) => {
+export default Step6
+/*const mapStateToProps = (state) => {
   return {
    idTxAct: state.idTxAct
  }
 }
 
-export default connect(mapStateToProps)(Step6)
+export default connect(mapStateToProps)(Step6)*/

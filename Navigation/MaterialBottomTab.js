@@ -7,7 +7,6 @@ import Accueil from "./AccueilStackNav"
 import Boutik from "../Components/Boutique"
 import Profil from "./ProfileStackNav"
 import Planning from "../Components/Planning"
-import SleyDrawerNav from "./SleyDrawerNav"
 
 import Icon from "react-native-vector-icons/Ionicons"
 

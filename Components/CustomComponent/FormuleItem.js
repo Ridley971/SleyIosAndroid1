@@ -24,7 +24,7 @@ class FormuleItem extends React.Component {
           <CommonText style={styles.txt_Detail}>{formule.detail}</CommonText>
 
           <TouchableOpacity style={styles.touchChoi}
-            onPress={() => selectFormule(formule.id.toString())}>
+            onPress={() => selectFormule(formule.id)}>
               <Text style={{fontSize: 25}}> Choisir</Text>
           </TouchableOpacity>
 

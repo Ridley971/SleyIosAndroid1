@@ -3,7 +3,7 @@ import {StyleSheet, View, Text,TextInput, Button,Picker, TouchableOpacity } from
 import RNPickerSelect from 'react-native-picker-select'
 import SleyBackground from "../CustomComponent/SleyBackground"
 import StepsTitle from "../CustomComponent/StepsTitle"
-import {connect} from "react-redux"
+//import {connect} from "react-redux"
 
 class Step5 extends React.Component {
 
@@ -20,8 +20,8 @@ class Step5 extends React.Component {
 
   _NextStep(poids)
   {
-    const action = { type: "UPDATE_POIDS", value: poids }
-    this.props.dispatch(action)
+    /*const action = { type: "UPDATE_POIDS", value: poids }
+    this.props.dispatch(action)*/
     this.props.navigation.navigate("Step6")
    }
 
@@ -104,11 +104,11 @@ const styles={
 
 }
 
-
-const mapStateToProps = (state) => {
+export default Step5
+/*const mapStateToProps = (state) => {
   return {
    poids: state.poids
  }
 }
 
-export default connect(mapStateToProps)(Step5)
+export default connect(mapStateToProps)(Step5)*/

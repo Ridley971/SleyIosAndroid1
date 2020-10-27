@@ -16,9 +16,12 @@ import {
 } from 'react-native-paper'
 
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
+import {AuthContext} from '../Auth/context'
+
 
 export function DrawerContent(props) {
 
+  const {signOut} = React.useContext(AuthContext)
   return (
     <View style= {{flex:1}}>
       <DrawerContentScrollView {...props}>
@@ -103,7 +106,7 @@ export function DrawerContent(props) {
           size={size}/>
         )}
         label="Se déconnecter "
-        omPress= {() => {}}
+        onPress= {() => {signOut()}}
         />
       </Drawer.Section>
     </View>

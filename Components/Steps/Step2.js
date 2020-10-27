@@ -1,19 +1,19 @@
 import React from 'react'
 import {StyleSheet, View, Text,Button,Image,TouchableOpacity } from 'react-native'
-import { connect } from 'react-redux'
 import SleyBackground from "../CustomComponent/SleyBackground"
 import StepsTitle from "../CustomComponent/StepsTitle"
 
 class Step2 extends React.Component {
 
   _NextStep(sexe) {
-    const action = { type: "UPDATE_SEXE", value: sexe }
-    this.props.dispatch(action)
-    this.props.navigation.navigate("Step3")
+    /*const action = { type: "UPDATE_SEXE", value: sexe }
+    this.props.dispatch(action)*/
+    console.log(sexe);
+    this.props.navigation.navigate("Step3",{sexe: sexe})
    }
 
   render()
-  {
+  { 
 
     this.props.navigation.setOptions({
         headerRight: () => (
@@ -65,10 +65,6 @@ const styles={
   },
 }
 
-const mapStateToProps = (state) => {
-  return {
-   sexe: state.sexe
- }
-}
 
-export default connect(mapStateToProps)(Step2)
+
+export default Step2

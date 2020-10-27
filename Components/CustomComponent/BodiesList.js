@@ -3,7 +3,7 @@
 import React from 'react'
 import { StyleSheet, FlatList,SafeAreaView } from 'react-native'
 import BodyItem from './BodyItem'
-import { connect } from 'react-redux'
+//import { connect } from 'react-redux'
 
 class BodiesList extends React.Component {
 
@@ -23,11 +23,11 @@ class BodiesList extends React.Component {
       this.state.selectedbody != bodyId)
     {
         this.setState({ selectedbody:bodyId });
-        this.props.dispatch(action)
+        //this.props.dispatch(action)
     }
     else {
       this.setState({ selectedbody:0 });
-      this.props.dispatch(action)
+      //this.props.dispatch(action)
     }
 
 
@@ -61,8 +61,8 @@ class BodiesList extends React.Component {
   }
 }
 
-
-const mapStateToProps = (state) => {
+export default BodiesList
+/*const mapStateToProps = (state) => {
   return {
     sexe:state.sexe,
     idTxAct: state.idTxAct,
@@ -70,4 +70,4 @@ const mapStateToProps = (state) => {
  }
 }
 
-export default connect(mapStateToProps)(BodiesList)
+export default connect(mapStateToProps)(BodiesList)*/

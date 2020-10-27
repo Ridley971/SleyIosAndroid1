@@ -1,7 +1,7 @@
 import React from 'react'
 import  {StyleSheet,View,Button,Image,Text,Alert, TouchableOpacity,ScrollView} from 'react-native'
 import CommonText from "./CustomComponent/CommonText"
-import {connect} from "react-redux"
+//import {connect} from "react-redux"
 
 import SecondBackground from './CustomComponent/SecondBackground'
 
@@ -102,9 +102,10 @@ const styles = StyleSheet.create({
   }
 })
 
-const mapStateToProps=(state)=>
+export default Boutique
+/*const mapStateToProps=(state)=>
 {
   return state
 
 }
-export default connect(mapStateToProps)(Boutique)
+export default connect(mapStateToProps)(Boutique)*/

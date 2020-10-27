@@ -3,7 +3,7 @@ import {StyleSheet, View, Text,TextInput, Button, TouchableOpacity } from 'react
 import RNPickerSelect from 'react-native-picker-select'
 import SleyBackground from "../CustomComponent/SleyBackground"
 import StepsTitle from "../CustomComponent/StepsTitle"
-import {connect} from "react-redux"
+//import {connect} from "react-redux"
 
 
 class Step4 extends React.Component {
@@ -20,8 +20,8 @@ class Step4 extends React.Component {
 
   _NextStep(taille)
   {
-    const action = { type: "UPDATE_TAILLE", value: taille }
-    this.props.dispatch(action)
+    /*const action = { type: "UPDATE_TAILLE", value: taille }
+    this.props.dispatch(action)*/
     this.props.navigation.navigate("Step5")
    }
 
@@ -103,11 +103,11 @@ const styles={
 
 }
 
-
-const mapStateToProps = (state) => {
+export default Step4
+/*const mapStateToProps = (state) => {
   return {
    taille: state.taille
  }
 }
 
-export default connect(mapStateToProps)(Step4)
+export default connect(mapStateToProps)(Step4)*/

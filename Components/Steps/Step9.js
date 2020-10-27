@@ -4,18 +4,15 @@ import FormuleItem from '../CustomComponent/FormuleItem'
 import SleyBackground from '../CustomComponent/SleyBackground'
 import StepsTitle from '../CustomComponent/StepsTitle'
 import formules from '../../Helpers/Formules'
-import {connect} from "react-redux"
+//import {connect} from "react-redux"
 
 class Step9 extends React.Component {
 
   _selectFormule= (idForm) =>
   {
-    const action = { type: "UPDATE_FORM", value: idForm }
-    this.props.dispatch(action)
-    this.props.navigation.reset({
-              index: 1,
-              routes: [{ name: 'SleyDrawerNav' }],
-            })
+    /*const action = { type: "UPDATE_FORM", value: idForm }
+    this.props.dispatch(action)*/
+    this.props.navigation.popToTop()
   }
 
   render()
@@ -50,6 +47,7 @@ class Step9 extends React.Component {
                     }
 
                 }
+                 //keyExtractor={(item) => item.id.toString() }
               />
             </SafeAreaView>
       </SleyBackground>
@@ -63,9 +61,11 @@ const styles = StyleSheet.create({
   }
 });
 
-const mapStateToProps=(state)=>
+
+export default Step9
+/*const mapStateToProps=(state)=>
 {
   return {idForm: state.idForm}
 
 }
-export default connect(mapStateToProps)(Step9)
+export default connect(mapStateToProps)(Step9)*/

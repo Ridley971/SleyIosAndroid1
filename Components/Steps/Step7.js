@@ -3,7 +3,7 @@ import {StyleSheet,View, Text, Image, TouchableOpacity,Button, FlatList} from 'r
 import bodies from '../../Helpers/body-percent'
 import BodiesList from "../CustomComponent/BodiesList"
 import SleyBackground from "../CustomComponent/SleyBackground"
-import {connect} from "react-redux"
+//import {connect} from "react-redux"
 
 class Step7 extends React.Component {
 
@@ -81,9 +81,11 @@ const styles={
 
           },
 }
-const mapStateToProps=(state)=>
+
+export default Step7
+/*const mapStateToProps=(state)=>
 {
   return {idTxCible:state.idTxCible}
 
 }
-export default connect(mapStateToProps)(Step7)
+export default connect(mapStateToProps)(Step7)*/

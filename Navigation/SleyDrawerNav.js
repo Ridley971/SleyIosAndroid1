@@ -4,7 +4,6 @@ import { createDrawerNavigator } from '@react-navigation/drawer';
 
 import Tutos from '../Components/Training/Tutos'
 import MesVotes from '../Components/Training/MesVotes'
-import AntrenmanStackNav from './AntrenmanStackNav'
 import MainTabNav from './MaterialBottomTab'
 import Planning from "../Components/Planning"
 import {DrawerContent} from "../Components/CustomComponent/DrawerContent"

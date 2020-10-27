@@ -42,7 +42,7 @@ class Profil extends React.Component {
                 </TouchableOpacity>
                 <Text style={{color:"rgba(255, 255, 0, 1)",
                         flex: 1, fontSize:20, fontWeight:'bold'}}>
-                    {this.props.pseudo}
+                    LE RID
                 </Text>
           </View>
         <View style={{flex:5,alignItems:'center'}}>
@@ -55,10 +55,10 @@ class Profil extends React.Component {
                 <Button title="Modifier" />
               </View>
               <Text style={styles.text}>
-                {"\u2666 Mon objectif: "}{this.getObjById(this.props.idObj) + "\n"}
-                {"\u2666 Mon poids initial: "}{this.props.poids + " KG \n"}
-                {"\u2666 Mon taux de graisse initial: "}{this.getTxById(this.props.idTxAct) + "\n"}
-                {"\u2666 Mon taux de graisse cible: "}{this.getTxById(this.props.idTxCible) + "\n"}
+                {"\u2666 Mon objectif: "}{this.getObjById(1) + "\n"}
+                {"\u2666 Mon poids initial: "}{90+ " KG \n"}
+                {"\u2666 Mon taux de graisse initial: "}{this.getTxById(2) + "\n"}
+                {"\u2666 Mon taux de graisse cible: "}{this.getTxById(3) + "\n"}
               </Text>
             </View>
 
@@ -137,9 +137,10 @@ categ_container:  {
   }
 })
 
-const mapStateToProps=(state)=>
+export default Profil
+/*const mapStateToProps=(state)=>
 {
   return state
 
 }
-export default connect(mapStateToProps) (Profil)
+export default connect(mapStateToProps) (Profil)*/
