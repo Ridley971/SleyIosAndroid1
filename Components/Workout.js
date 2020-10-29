@@ -5,20 +5,37 @@ import SleyBackground from './CustomComponent/SleyBackground'
 
 import { connect } from 'react-redux'
 
-class Workout extends React.Component {
-
-  render()
-  {
+const Workout =props =>{
     return(
         <View style={{flex:1,backgroundColor:"black"}}>
+          <View style= {styles.header}>
 
-          <Text style={{
-            textAlign:"center", color:"yellow",
-            fontSize:30, fontWeight:"bold"}}>
-              1 h 00
-          </Text>
-          <View style={{flex:1}}>
-              <View style={{flex:1,
+          <TouchableOpacity
+            onPress={() => props.navigation.goBack(null)}
+             style={{ width:40, height:40,left:"15%",}} >
+            <Image
+            style={{flex:1,width:null, height:null}}
+            source={require("../assets/close.png")}/>
+          </TouchableOpacity>
+
+            <Text style={{flex:2,
+              textAlign:"center", color:"yellow",
+              fontSize:25, fontWeight:"bold"}}>
+                1 h 00
+            </Text>
+
+
+            <TouchableOpacity
+              onPress={() => props.navigation.navigate("Alimentation")}
+              style={{right:"15%",width:55, height:55, borderWidth:3,borderRadius:30,
+              backgroundColor:"yellow", borderColor:"white",}}>
+                <Image
+                style={{flex:1,width:null, height:null}}
+                source={require("../assets/water.png")}/>
+            </TouchableOpacity>
+          </View>
+          <View style={{flex:12}}>
+              <View style={{flex:0.5,
                justifyContent:"center",}}>
                   <Text style={{
                     textAlign:"center",
@@ -46,32 +63,18 @@ class Workout extends React.Component {
 
               </View>
           </View>
-          <TouchableOpacity
-            onPress={() => this.props.navigation.goBack(null)}
-             style={{position:"absolute", left:20, top:30,
-          width:40, height:40,}} >
-            <Image
-            style={{flex:1,width:null, height:null}}
-            source={require("../assets/close.png")}/>
-          </TouchableOpacity>
-
-          <TouchableOpacity
-            style={{
-            position:"absolute", right:20, top:30,
-            backgroundColor:"yellow",
-            width:60, height:60,
-            borderRadius:40, borderColor:"white", borderWidth:7}}>
-              <Image
-              style={{flex:1,width:null, height:null}}
-              source={require("../assets/water.png")}/>
-          </TouchableOpacity>
         </View>
     )
   }
-}
+
 
 
 const styles={
+  header: {
+      flex: 1,
+      flexDirection:"row",
+      paddingTop: "15%",
+  },
 
 }
 

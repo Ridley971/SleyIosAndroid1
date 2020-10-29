@@ -8,12 +8,14 @@ class SecondBackground extends React.Component {
 
   render()
   {
-    //const { title} = this.props
+    const toggleDrawer =this.props.isToggleDrawer;
     return(
       <View style={styles.main_container}>
-
-           <ToggleDrawer {...this.props}/>
-           <View style={styles.logo_container}>
+            {toggleDrawer ?
+              <ToggleDrawer {...this.props}/>:
+              null
+            }
+           <View style={styles.logo_container, {marginTop: toggleDrawer ?"22%":"5%"}}>
             <Image style={{height:70, width:70}} source={require('../../assets/icon2.png')}/>
            </View>
 
@@ -44,7 +46,6 @@ const styles = StyleSheet.create({
     flex: 0,
     alignItems:'center',
     justifyContent:'center',
-    marginTop:"25%",
   },
 })
 

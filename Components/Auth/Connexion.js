@@ -23,7 +23,6 @@ const Connexion = ({navigation}) =>{
     email: '',
     password: '',
     check_textInputChange: false,
-    secureTextEntry: true,
     isValidEmail: true,
     isValidPassword:true
   })
@@ -32,19 +31,12 @@ const Connexion = ({navigation}) =>{
   const {signIn} = React.useContext(AuthContext)
 
   const textInputChange = (val) => {
-    if (val.length > 0) {
+    
       setData({
         ...data,
         email: val,
-        check_textInputChange: true
       })
-    } else {
-      setData({
-        ...data,
-        email: val,
-        check_textInputChange: false
-      })
-    }
+
   }
 
   const handlePasswordChange = (val) => {
@@ -84,19 +76,9 @@ const Connexion = ({navigation}) =>{
                   placeholder="Votre identifiant"
                   style= {styles.textInput}
                   autoCapitalize="none"
-                  //onChangeText={(val) => textInputChange(val)}
+                  onChangeText={(val) => textInputChange(val)}
                 />
-                {data.check_textInputChange ?
-               <Animatable.View
-                   animation="bounceIn"
-               >
-                   <Feather
-                       name="check-circle"
-                       color="green"
-                       size={30}
-                   />
-               </Animatable.View>
-               : null}
+
           </View>
 
           <Text style={[styles.text_footer,{marginTop:40}]}>Mot de Passe</Text>

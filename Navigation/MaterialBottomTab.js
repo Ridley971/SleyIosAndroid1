@@ -4,7 +4,7 @@ import {MaterialIcons} from 'react-native-vector-icons'
 import { StyleSheet, Image,TouchableOpacity } from 'react-native'
 
 import Accueil from "./AccueilStackNav"
-import Boutik from "../Components/Boutique"
+import Boutik from "../Components/Boutik/Boutique"
 import Profil from "./ProfileStackNav"
 import Planning from "../Components/Planning"
 

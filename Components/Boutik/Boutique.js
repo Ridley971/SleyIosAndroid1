@@ -1,63 +1,58 @@
 import React from 'react'
 import  {StyleSheet,View,Button,Image,Text,Alert, TouchableOpacity,ScrollView} from 'react-native'
-import CommonText from "./CustomComponent/CommonText"
+import CommonText from "../CustomComponent/CommonText"
 //import {connect} from "react-redux"
 
-import SecondBackground from './CustomComponent/SecondBackground'
+import SecondBackground from '../CustomComponent/SecondBackground'
 
-class Boutique extends React.Component
-{
-  constructor(props) {
-    super(props);
-  }
+const Boutique =props =>{
 
-  render()
-  {
     return(
-     <SecondBackground title="Boutik" {...this.props}>
+     <SecondBackground title="Boutik" isToggleDrawer ={true} {...props}>
 
           {false ? (<TouchableOpacity style={[styles.categ_container,{}]}>
 
             <Text style={[{color:"red"}, styles.categ_title]}>Vêtements & Accessoires</Text>
                 <View style={styles.image_container}>
 
-                <Image style={styles.image_categ}  source={require('../assets/Boutik/v1.jpeg')}/>
+                <Image style={styles.image_categ}  source={require('../../assets/Boutik/v1.jpeg')}/>
 
-                <Image style={styles.image_categ} source={require('../assets/Boutik/v2.jpeg')}/>
+                <Image style={styles.image_categ} source={require('../../assets/Boutik/v2.jpeg')}/>
 
-                <Image style={styles.image_categ} source={require('../assets/Boutik/v3.jpeg')}/>
+                <Image style={styles.image_categ} source={require('../../assets/Boutik/v3.jpeg')}/>
               </View>
           </TouchableOpacity>) : null }
 
-          <TouchableOpacity style={styles.categ_container}>
+          <TouchableOpacity style={styles.categ_container} onPress={() => props.navigation.navigate("Natiye")}>
 
           <Text style={styles.categ_title}>Natiyé</Text>
               <View style={styles.image_container}>
 
-                <Image style={styles.image_categ} source={require('../assets/Boutik/natiyeB.jpeg')}/>
+                <Image style={styles.image_categ} source={require('../../assets/Boutik/natiyeB.jpeg')}/>
 
-                <Image style={styles.image_categ} source={require('../assets/Boutik/natiyeR.jpeg')}/>
+                <Image style={styles.image_categ} source={require('../../assets/Boutik/natiyeR.jpeg')}/>
 
-                <Image style={styles.image_categ} source={require('../assets/Boutik/natiyeGourde.jpeg')}/>
+                <Image style={styles.image_categ} source={require('../../assets/Boutik/natiyeGourde.jpeg')}/>
               </View>
           </TouchableOpacity>
 
-          <TouchableOpacity style={styles.categ_container}>
+          <TouchableOpacity style={styles.categ_container}
+          onPress={() => props.navigation.navigate("Alimentation")}>
 
           <Text style={styles.categ_title}>Alimentation</Text>
               <View style={styles.image_container}>
 
-              <Image style={styles.image_categ}  source={require('../assets/Boutik/a1.jpeg')}/>
+              <Image style={styles.image_categ}  source={require('../../assets/Boutik/a1.jpeg')}/>
 
-              <Image style={styles.image_categ} source={require('../assets/Boutik/a2.jpeg')}/>
+              <Image style={styles.image_categ} source={require('../../assets/Boutik/a2.jpeg')}/>
 
-              <Image style={styles.image_categ} source={require('../assets/Boutik/a3.jpeg')}/>
+              <Image style={styles.image_categ} source={require('../../assets/Boutik/a3.jpeg')}/>
               </View>
           </TouchableOpacity>
       </SecondBackground>
     )
   }
-}
+
 
 const styles = StyleSheet.create({
   categ_container: {

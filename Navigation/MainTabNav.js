@@ -5,8 +5,8 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import ProfileStackNav from "./ProfileStackNav"
 import SleyDrawerNav from "./SleyDrawerNav"
 import AccueilStackNav from "./AccueilStackNav"
+import BoutikStackNav from "./BoutikStackNav"
 
-import Boutique from "../Components/Boutique"
 import Connexion from "../Components/Auth/Connexion"
 
 const Tab = createBottomTabNavigator();
@@ -24,8 +24,8 @@ const  MainTabNav =({navigation})=>(
             }}
           >
 
-         <Tab.Screen name="Boutique"
-            component={Boutique}
+         <Tab.Screen name="BoutikStackNav"
+            component={BoutikStackNav}
             options={{
                   tabBarLabel: 'Boutique',
                   tabBarIcon: () => {
