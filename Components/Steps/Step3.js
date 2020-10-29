@@ -20,6 +20,7 @@ class Step3 extends React.Component
      }
   }
 
+  
 
   _NextStep(dateN, sexe) {
     /*const action = { type: "UPDATE_DATEN", value: dateN }
@@ -54,35 +55,7 @@ class Step3 extends React.Component
                 <StepsTitle style={{flex:1,justifyContent:"center"}}>Quel est votre Date de naissance ?</StepsTitle>
 
 
-                <View style={{width:"80%",borderRadius:45,alignSelf:"center"}}>
-                  <TouchableOpacity style={styles.touchButton}
-                    onPress={()=> {this.setState({showDatePicker:true})}} >
-                    <Text style={{fontSize:20,textAlign:"center",fontWeight:"bold"}}>
-                      {moment(date).format("L")}
-                    </Text>
-                  </TouchableOpacity>
-                  {this.state.showDatePicker && (
-                        <CustomDatePicker
-                          date={date}
-                          maximumDate= {new Date(year-18,11,31)}
-                          minimumDate= {new Date(year-100,11,31)}
-                          onClose={date => {
-                            if (date && Platform.OS !== 'ios')
-                            {
-                              this.setState({ showDatePicker: false, date: moment(date) });
-                            }
-                            else {
-                              this.setState({ showDatePicker: false });
-                            }
-                          }}
-                          onChange={d => {
-                            this.setState({ date: moment(d) });
-                          }}
-                        />
-                      )
-                  }
-
-                </View>
+                <CustomDatePicker/>
 
                 <CommonText style={styles.text_Detail}>
                 Votre âge nous permet de mieux personnaliser
@@ -101,8 +74,7 @@ class Step3 extends React.Component
 }
 
 const styles={
-  touchButton:
-{
+  touchButton:{
     justifyContent:"flex-end",
     borderColor:'#C0C0C0C0',
     backgroundColor:'rgba(255, 255, 0, 0.7)',

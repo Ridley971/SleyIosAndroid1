@@ -6,6 +6,7 @@ import ConnexionStackNav from './Navigation/ConnexionStackNav'
 import MainTabNav from './Navigation/MainTabNav'
 import  SleyDrawerNav from './Navigation/SleyDrawerNav'
 import {AuthContext} from "./Components/Auth/context"
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import Accueil from "./Components/Accueil"
@@ -51,6 +52,7 @@ const loginReducer = (prevState, action) => {
       ...prevState,
       email: null,
       userToken : null,
+      isLoading: false,
     }
     case 'REGISTER':
       return{
@@ -66,19 +68,29 @@ const loginReducer = (prevState, action) => {
 const [loginState, dispatch] = React.useReducer(loginReducer, initialState)
 
 const authContext= React.useMemo(()=>({
-  signIn:(email, password) =>{
+  signIn: async(email, password) =>{
     // setIsLoading(false)
     // setUserToken('test')
-    let userToken;
-    email= null;
-    if (email == 'lerid' && password == 'pass') {
-      userToken = 'test'
-    }
-    dispatch({type: 'LOGIN', id: email, token: userToken})
+     let userToken;
+     userToken= null;
+     if (email == 'lerid' && password == 'pass') {
+        try{
+          userToken = 'test'
+           await AsyncStorage.setItem('userToken', userToken)
+        } catch (e) {
+          console.log(e);
+        }
+     }
+     dispatch({type: 'LOGIN', id: email, token: userToken})
   },
-  signOut:() =>{
+  signOut: async() =>{
     // setIsLoading(false)
     // setUserToken(null)
+    try{
+       await AsyncStorage.removeItem('userToken')
+    } catch (e) {
+      console.log(e);
+    }
     dispatch({type: 'LOGOUT'})
   },
 
@@ -89,9 +101,18 @@ const authContext= React.useMemo(()=>({
 
  // Similaire à componentDidMount et componentDidUpdate
 useEffect(()=> {
-  setTimeout(()=>{
+  setTimeout(async()=>{
     //setIsLoading(false)
-    //dispatch({type: 'RETRIEVE_TOKEN', token: 'null'})
+    let userToken;
+    userToken= null;
+    try{
+       userToken = await AsyncStorage.getItem('userToken')
+     } catch (e) {
+       console.log(e);
+     }
+
+
+    dispatch({type: 'RETRIEVE_TOKEN', token: userToken})
 
   },1000)
 })
