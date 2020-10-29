@@ -13,7 +13,7 @@ class Step2 extends React.Component {
    }
 
   render()
-  { 
+  {
 
     this.props.navigation.setOptions({
         headerRight: () => (

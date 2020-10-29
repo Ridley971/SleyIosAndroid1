@@ -23,7 +23,9 @@ const Connexion = ({navigation}) =>{
     email: '',
     password: '',
     check_textInputChange: false,
-    secureTextEntry: true
+    secureTextEntry: true,
+    isValidEmail: true,
+    isValidPassword:true
   })
 
   //signIn dans App.js
@@ -62,6 +64,8 @@ const Connexion = ({navigation}) =>{
   const loginHandle = (email, password) =>{
     signIn(email,password)
   }
+
+
   return(
     <View style={styles.container}>
         <View style={styles.header}>
@@ -69,7 +73,7 @@ const Connexion = ({navigation}) =>{
         </View>
 
         <View style={styles.footer}>
-          <Text style={styles.text_footer}>Email</Text>
+          <Text style={styles.text_footer}>Identifiant (Email ou pseudo)</Text>
           <View style={styles.action}>
               <FontAwesome
                 name="user-o"
@@ -77,10 +81,10 @@ const Connexion = ({navigation}) =>{
                 size={20}
                 />
                 <TextInput
-                  placeholder="Votre Email"
+                  placeholder="Votre identifiant"
                   style= {styles.textInput}
                   autoCapitalize="none"
-                  onChangeText={(val) => textInputChange(val)}
+                  //onChangeText={(val) => textInputChange(val)}
                 />
                 {data.check_textInputChange ?
                <Animatable.View
@@ -94,6 +98,7 @@ const Connexion = ({navigation}) =>{
                </Animatable.View>
                : null}
           </View>
+
           <Text style={[styles.text_footer,{marginTop:40}]}>Mot de Passe</Text>
           <View style={styles.action}>
               <FontAwesome
@@ -126,7 +131,11 @@ const Connexion = ({navigation}) =>{
 
                 </TouchableOpacity>
           </View>
-
+          {data.isValidPassword ? null:
+            <Animatable.View animation="fadeInLeft" duration={500}>
+              <Text style={styles.errorMsg}> Le mot de passe est invalide</Text>
+            </Animatable.View>
+          }
           <TouchableOpacity style= {styles.button}
           onPress= {()=> loginHandle(data.email, data.password)}>
               <LinearGradient
@@ -204,6 +213,7 @@ const styles = StyleSheet.create({
     errorMsg: {
         color: '#FF0000',
         fontSize: 14,
+        fontWeight:'bold'
     },
     button: {
         alignItems: 'center',
