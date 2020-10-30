@@ -8,7 +8,7 @@ class MesVotes extends React.Component {
   {
     return(
 
-        <SecondBackground title="Mes Votes" {...this.props}>
+        <SecondBackground title="Mes Votes" isToggleDrawer ={true} {...this.props}>
         </SecondBackground>
     )
   }

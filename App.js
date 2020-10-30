@@ -1,6 +1,6 @@
 import 'react-native-gesture-handler';
 import React, { useEffect }  from 'react';
-import {ActivityIndicator, View} from 'react-native'
+import {ActivityIndicator, View, Alert} from 'react-native'
 import { NavigationContainer } from '@react-navigation/native';
 import ConnexionStackNav from './Navigation/ConnexionStackNav'
 import MainTabNav from './Navigation/MainTabNav'
@@ -68,6 +68,7 @@ const loginReducer = (prevState, action) => {
 const [loginState, dispatch] = React.useReducer(loginReducer, initialState)
 
 const authContext= React.useMemo(()=>({
+
   signIn: async(email, password) =>{
     // setIsLoading(false)
     // setUserToken('test')
@@ -80,7 +81,16 @@ const authContext= React.useMemo(()=>({
         } catch (e) {
           console.log(e);
         }
-     }
+     }else {
+         Alert.alert(
+          "Echec de connexion !",
+          "L'identifiant ou le mot de passe est incorrect !",
+          [
+            { text: "OK", onPress: () => console.log("OK Pressed") }
+          ],
+          { cancelable: false }
+      );
+    }
      dispatch({type: 'LOGIN', id: email, token: userToken})
   },
   signOut: async() =>{

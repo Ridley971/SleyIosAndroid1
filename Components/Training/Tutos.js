@@ -10,7 +10,7 @@ class Tutos extends React.Component {
   render()
   {
     return(
-      <SecondBackground title="Tutos" {...this.props}>
+      <SecondBackground title="Tutos" isToggleDrawer ={true} {...this.props}>
 
             <View style={styles.tutos_categ}>
                 <TouchableOpacity style={styles.tchOp}>

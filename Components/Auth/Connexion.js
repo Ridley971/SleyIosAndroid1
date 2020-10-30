@@ -24,14 +24,15 @@ const Connexion = ({navigation}) =>{
     password: '',
     check_textInputChange: false,
     isValidEmail: true,
-    isValidPassword:true
+    isValidPassword:true,
+    secureTextEntry:true,
   })
 
   //signIn dans App.js
   const {signIn} = React.useContext(AuthContext)
 
   const textInputChange = (val) => {
-    
+
       setData({
         ...data,
         email: val,

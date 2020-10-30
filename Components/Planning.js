@@ -9,7 +9,7 @@ class Planning extends React.Component {
   {
     return(
 
-        <SecondBackground title="Mes Réservations" {...this.props}>
+        <SecondBackground title="Mes Réservations" isToggleDrawer ={true} {...this.props}>
         </SecondBackground>
     )
   }
